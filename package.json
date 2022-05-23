@@ -8,6 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "antd": "^4.20.6",
     "axios": "^0.27.2",
     "nookies": "^2.5.2",
     "normalize.css": "^8.0.1",
