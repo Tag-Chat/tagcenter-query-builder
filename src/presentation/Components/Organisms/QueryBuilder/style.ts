@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { pxToRem } from "../../../Styles/global";
 
 export const Container = styled.div`
   .qb-drag-handler,
@@ -39,9 +40,9 @@ export const Container = styled.div`
 
   .query-builder {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-size: ${pxToRem(14)};
     line-height: 1.25;
-    margin: 1rem;
+    margin: ${pxToRem(16)};
   }
 
   .query-builder.qb-dragging {
@@ -54,17 +55,17 @@ export const Container = styled.div`
 
   .group {
     background: rgba(250, 240, 210, 0.5);
-    border: 1px solid #dcc896;
+    border: ${pxToRem(1)} solid #dcc896;
   }
 
   .rule {
     background-color: white;
-    border: 1px solid transparent;
-    padding: 10px;
+    border: ${pxToRem(1)} solid transparent;
+    padding: ${pxToRem(10)};
   }
 
   .rule-with-error .rule {
-    border: 1px solid #e0a1a1;
+    border: ${pxToRem(1)} solid #e0a1a1;
   }
 
   .rule--body--wrapper {
@@ -75,8 +76,8 @@ export const Container = styled.div`
 
   .rule--error {
     color: red;
-    margin-bottom: -5px;
-    margin-top: 5px;
+    margin-bottom: ${pxToRem(-5)};
+    margin-top: ${pxToRem(5)};
   }
 
   .group-or-rule {

@@ -8,9 +8,8 @@ import {
   BuilderProps,
 } from "react-awesome-query-builder";
 
-import { config } from "../../../Data/QueryBuilder";
+import { config } from "../../../../Data/QueryBuilder";
 
-// Você pode carregar o valor da consulta do seu armazenamento de back-end (for saving see `Query.onChange()`)
 const queryValue: JsonGroup = { id: QbUtils.uuid(), type: "group" };
 
 const QueryBuilder = () => {
