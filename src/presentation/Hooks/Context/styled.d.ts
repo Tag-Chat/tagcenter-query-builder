@@ -7,8 +7,8 @@ declare module "styled-components" {
 
     // Primary:
     primary300: string;
-    primary300: string;
-    primary300: string;
+    primary500: string;
+    primary700: string;
     primary900: string;
 
     // Text:
