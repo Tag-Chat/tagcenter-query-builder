@@ -36,7 +36,7 @@ export const GlobalStyles = createGlobalStyle`
     line-height: 1;
     background: ${(props) => props.theme.backgroundBody};
     color: ${(props) => props.theme.textPrimary};
-    font-family: ${(props) => props.theme.fontFamilyPrimary};
+    font-family: "Nunito", sans-serif;
     font-size: ${pxToRem(16)};
   }
   ol, ul {

@@ -4,6 +4,10 @@ import { DefaultTheme } from "styled-components";
 import Load from "../Loading";
 import * as S from "./styles";
 
+type ButtonColorListType = {
+  [K in ButtonStyle]?: (theme: any) => string;
+};
+
 type ButtonStyle =
   | "primary"
   | "borderOrange"
@@ -31,7 +35,7 @@ export interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
   text?: string;
 }
 
-const buttonColorList = {
+const buttonColorList: ButtonColorListType = {
   primary: (theme: DefaultTheme) => theme.white,
   borderOrange: (theme: DefaultTheme) => theme.orange,
   secondary: (theme: DefaultTheme) => theme.primary300,
@@ -52,7 +56,7 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   onClick,
   IsLoading,
-  styleButton = "primary",
+  styleButton = "borderPrimary",
   maxWidth,
   sizeButton = "md",
   spacing,
@@ -76,7 +80,7 @@ export const Button: React.FC<ButtonProps> = ({
       >
         {IsLoading ? (
           <S.Loading style={{ maxWidth: maxWidth, margin: spacing }}>
-            <Load size={60} color={loadingColor} />
+            <Load size={60} color={loadingColor ? loadingColor : ""} />
             <S.MensagenWait>{text}</S.MensagenWait>
           </S.Loading>
         ) : (

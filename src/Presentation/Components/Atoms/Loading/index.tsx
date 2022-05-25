@@ -1,6 +1,6 @@
 import React from "react";
 import { ThreeDots } from "react-loader-spinner";
-import { useTheme } from "../../../providers/Themes";
+import { useCore } from "../../../Hooks/Context";
 
 type LoadingProps = {
   duration?: number;
@@ -10,7 +10,7 @@ type LoadingProps = {
 };
 
 const Loading: React.FC<LoadingProps> = ({ size = 56, color }) => {
-  const { theme } = useTheme();
+  const { theme } = useCore();
   const finalColor = !!color ? color : theme.primary300;
 
   return <ThreeDots color={finalColor} height={size} width={size} />;

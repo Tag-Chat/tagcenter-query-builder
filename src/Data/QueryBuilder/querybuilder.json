@@ -35,7 +35,11 @@
       ],
       "typeItemOperator": "select",
       "customItems": [],
-      "typeCustomItems": "select"
+      "typeCustomItems": "select",
+      "response": {
+        "item": "text",
+        "type": "text"
+      }
     },
     {
       "name": "Tag",

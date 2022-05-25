@@ -58,7 +58,7 @@ const Select: React.FC<SelectProps> = ({
             ...validation,
           })}
         >
-          <option value="">{emptyValueName ?? `Select`}</option>
+          <option value="">{emptyValueName ?? `Selecione`}</option>
           {options &&
             options.map((option, index) => (
               <option key={`${option.value}+${index}`} value={option.value}>

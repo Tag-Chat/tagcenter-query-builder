@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { lighten, transparentize } from "polished";
-import { pxToRem } from "@/styles/global";
+import { pxToRem } from "../../../Styles/global";
 // import { Row, BasicButton } from "@/styles/components";
 
 export const Loading = styled.div`
