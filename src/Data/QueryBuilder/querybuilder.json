@@ -37,7 +37,6 @@
       "customItems": [],
       "typeCustomItems": "select",
       "response": {
-        "item": "text",
         "type": "text"
       }
     },
@@ -46,10 +45,11 @@
       "action": false,
       "type": "select",
       "valueDefault": ["Contém a tag", "Não contém a tag"],
-      "operator": { "value": ["vem da api"] },
+      "operator": [{ "value": ["vem da api"] }],
       "typeItemOperator": "select",
       "customItems": [],
-      "typeItemCustomItems": "select"
+      "typeItemCustomItems": "select",
+      "response": null
     },
     {
       "name": "Data de Criação",
@@ -64,7 +64,8 @@
       "operator": "",
       "typeItemOperator": "Data",
       "customItems": [],
-      "typeItemCustomItems": "select"
+      "typeItemCustomItems": "select",
+      "response": null
     },
     {
       "name": "Dono do Lead",
@@ -72,17 +73,19 @@
       "type": "select",
       "valueDefault": ["É", "Não é"],
       "operator": [{ "value": ["vem da api"] }],
-      "typeItemOperator": "Select",
+      "typeItemOperator": "select",
       "customItems": [],
-      "typeItemCustomItems": "Select"
+      "typeItemCustomItems": "select",
+      "response": null
     },
     {
       "name": "Bounce",
       "action": false,
       "type": "select",
       "valueDefault": ["O lead é", "O lead não é"],
-      "operator": { "value": ["Soft Bounce", "Hard Bounce"] },
-      "typeItemOperator": "select"
+      "operator": [{ "value": ["Soft Bounce", "Hard Bounce"] }],
+      "typeItemOperator": "select",
+      "response": null
     },
     {
       "name": "Converteu",
@@ -155,7 +158,8 @@
           "input": ["Select Number"]
         }
       ],
-      "customItems": []
+      "customItems": [],
+      "response": null
     },
     {
       "name": "Não Converteu",
@@ -327,7 +331,11 @@
       "action": false,
       "type": "select",
       "valueDefault": ["é", "não é", "é maior que", "é menor que"],
-      "operator": [""],
+      "operator": [
+        {
+          "value": [""]
+        }
+      ],
       "typeItemOperator": "select number",
       "response": null
     },

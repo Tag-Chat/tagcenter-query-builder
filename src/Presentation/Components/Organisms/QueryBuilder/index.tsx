@@ -64,12 +64,12 @@ const QueryBuilder = () => {
     let subOptions: ValueProps[] = [];
     let operator: ValueProps[] = [];
 
-    for (let i = 0; i < data.items.length; i++) {
+    for (let i = 0; i < data?.items.length; i++) {
       options = [
         ...options,
         {
-          value: data.items[i]?.name,
-          label: data.items[i]?.name,
+          value: data?.items[i]?.name,
+          label: data?.items[i]?.name,
         },
       ];
     }
@@ -77,14 +77,14 @@ const QueryBuilder = () => {
 
     setConditionActive(watchCondition);
 
-    const getValueDefault = data.items.map((item: any) => {
+    const getValueDefault = data?.items.map((item: any) => {
       if (item.name === conditionActive) {
-        for (let i = 0; i < item.valueDefault.length; i++) {
+        for (let i = 0; i < item?.valueDefault.length; i++) {
           subOptions = [
             ...subOptions,
             {
-              value: item.valueDefault[i],
-              label: item.valueDefault[i],
+              value: item?.valueDefault[i],
+              label: item?.valueDefault[i],
             },
           ];
         }
@@ -92,44 +92,43 @@ const QueryBuilder = () => {
     });
     setSubItemOption(subOptions);
 
-    const getOperator = data.items.map((item: any) => {
+    const getOperator = data?.items.map((item: any) => {
       if (item.name === conditionActive) {
-        if (item.operator.length === 1) {
+        if (item.operator && item.operator.length === 1) {
           setOperatorActive(true);
-          for (let i = 0; i < item.operator[0].value.length; i++) {
+          for (let i = 0; i < item?.operator[0]?.value.length; i++) {
             operator = [
               ...operator,
               {
-                value: item.operator[0].value[i],
-                label: item.operator[0].value[i],
+                value: item?.operator[0]?.value[i],
+                label: item?.operator[0]?.value[i],
               },
             ];
           }
-        } else if (item.operator.length > 1) {
+          setOperatorOption(operator);
+        } else if (item?.operator && item?.operator.length > 1) {
           setOperatorActive(true);
           for (let i = 0; i < item.operator.length; i++) {
             for (
               let index = 0;
-              index < item.operator[i].value.length;
+              index < item?.operator[i]?.value.length;
               index++
             ) {
               operator = [
                 ...operator,
                 {
-                  value: item.operator[i].value[index],
-                  label: item.operator[i].value[index],
+                  value: item?.operator[i]?.value[index],
+                  label: item?.operator[i]?.value[index],
                 },
               ];
             }
           }
+          setOperatorOption(operator);
         } else {
           setOperatorActive(false);
         }
       }
     });
-
-    console.log("getValueDefault", operator);
-    setOperatorOption(operator);
   }, [watchCondition, conditionActive]);
 
   return (

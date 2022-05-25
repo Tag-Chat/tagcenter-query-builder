@@ -57,7 +57,7 @@ export const ContentCondition = styled.div`
 `;
 
 export const SelectContent = styled.div`
-  min-width: ${pxToRem(200)};
+  min-width: ${pxToRem(220)};
 
   margin: 0 0.5rem;
 `;
