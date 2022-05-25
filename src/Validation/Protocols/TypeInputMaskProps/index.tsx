@@ -20,7 +20,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   error?: string;
   icon?: ReactElement;
   iconPosition?: "left" | "right";
-  mask: ITypeMask;
+  mask?: ITypeMask;
   control: Control<FieldValues, object>;
   onKeyPress?: (e: any) => void;
   customComponents?: {

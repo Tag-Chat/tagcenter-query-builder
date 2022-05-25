@@ -229,7 +229,7 @@
     {
       "name": "Dados de conversão",
       "action": false,
-      "item": "select",
+      "type": "select",
       "valueDefault": [
         "Campanha (utm_campaign)",
         "Cargo",
@@ -319,144 +319,144 @@
       "response": null
     },
     {
-      "item": "Interesse",
+      "name": "Interesse",
       "action": false,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["é", "não é", "é maior que", "é menor que"],
       "operator": [""],
       "typeItemOperator": "select number",
       "response": null
     },
     {
-      "item": "Visitou a página",
+      "name": "Visitou a página",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["qualquer página"],
       "response": null
     },
     {
-      "item": "Não visitou a página",
+      "name": "Não visitou a página",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["qualquer página"],
       "response": null
     },
     {
-      "item": "Recebeu o email",
+      "name": "Recebeu o email",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["qualquer página"],
       "response": null
     },
     {
-      "item": "Não recebeu o email",
+      "name": "Não recebeu o email",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["qualquer página"],
       "response": null
     },
     {
-      "item": "Abriu o email",
+      "name": "Abriu o email",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["qualquer página"],
       "response": null
     },
     {
-      "item": "Recebeu e não abriu o email",
+      "name": "Recebeu e não abriu o email",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["qualquer página"],
       "response": null
     },
     {
-      "item": "Clicou no link do email",
+      "name": "Clicou no link do email",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["qualquer página"],
       "response": null
     },
     {
-      "item": "Recebeu e não clicou no link do email",
+      "name": "Recebeu e não clicou no link do email",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["qualquer página"],
       "response": null
     },
     {
-      "item": "Abriu o email",
+      "name": "Abriu o email",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["qualquer página"],
       "response": null
     },
     {
-      "item": "Iniciou o fluxo",
+      "name": "Iniciou o fluxo",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["qualquer página"],
       "response": null
     },
     {
-      "item": "Não iniciou o fluxo",
+      "name": "Não iniciou o fluxo",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["qualquer página"],
       "response": null
     },
     {
-      "item": "Completou o fluxo",
+      "name": "Completou o fluxo",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["qualquer página"],
       "response": null
     },
     {
-      "item": "Recebeu o email do fluxo",
+      "name": "Recebeu o email do fluxo",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["qualquer página"],
       "response": null
     },
     {
-      "item": "Não recebeu o email do fluxo",
+      "name": "Não recebeu o email do fluxo",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["qualquer página"],
       "response": null
     },
     {
-      "item": "Abriu o email do fluxo",
+      "name": "Abriu o email do fluxo",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["qualquer página"],
       "response": null
     },
     {
-      "item": "Não recebeu o email",
+      "name": "Não recebeu o email",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["qualquer página"],
       "response": null
     },
     {
-      "item": "Clicou no link do email",
+      "name": "Clicou no link do email",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["qualquer página"],
       "response": null
     },
     {
-      "item": "Recebeu e não clicou no link do email",
+      "name": "Recebeu e não clicou no link do email",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["qualquer página"],
       "response": null
     },
     {
-      "item": "Envio de comunicação",
+      "name": "Envio de comunicação",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": [
         "O Lead possui base legal para comunicação",
         "O Lead não possui base legal para comunicação",
@@ -465,9 +465,9 @@
       "response": null
     },
     {
-      "item": "CRM",
+      "name": "CRM",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": [
         "Oportunidade criada",
         "Oportunidade perdida",
@@ -479,9 +479,9 @@
       "response": null
     },
     {
-      "item": "E-Commerce",
+      "name": "E-Commerce",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": [
         "Carrinho abandonado",
         "Carrinho abandonado - item",
@@ -491,16 +491,16 @@
       "response": null
     },
     {
-      "item": "Chat",
+      "name": "Chat",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": ["Chat finalizado", "Chat iniciado"],
       "response": null
     },
     {
-      "item": "Mídia",
+      "name": "Mídia",
       "action": true,
-      "typeItem": "select",
+      "type": "select",
       "valueDefault": [
         "Reprodução de mídia iniciada",
         "Reprodução de mídia finalizada"

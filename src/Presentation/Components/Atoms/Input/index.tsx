@@ -9,7 +9,6 @@ import { Container as DefaultContainer } from "./style";
 //components
 import DefaultLabel from "../Label";
 import Error from "../Error";
-import { useMask } from "../../../../Validation/Rules/InputMask";
 import { InputProps } from "../../../../Validation/Protocols/TypeInputMaskProps";
 
 const Input: React.FC<InputProps> = ({
@@ -20,7 +19,7 @@ const Input: React.FC<InputProps> = ({
   error,
   icon,
   iconPosition = "left",
-  mask = "default",
+  mask,
   control,
   onKeyPress,
   customComponents,
@@ -51,7 +50,7 @@ const Input: React.FC<InputProps> = ({
           rules={validation}
           render={({ field: { onBlur, ref, onChange, value } }) => (
             <InputMask
-              mask={mask}
+              mask=""
               type={showPassword ? "text" : type ?? "text"}
               id={name}
               value={value ?? ""}
@@ -60,8 +59,6 @@ const Input: React.FC<InputProps> = ({
               onBlur={onBlur}
               inputRef={ref}
               placeholder=" "
-              /**@ts-ignore */
-              maskChar=""
               {...rest}
             />
           )}
@@ -74,12 +71,8 @@ const Input: React.FC<InputProps> = ({
             label={label}
           />
         )}
-
-        {/* Render Handle Icon */}
-        {type !== "password" && icon && icon}
       </Container>
 
-      {/* Render Error */}
       {error && <Error error={error} />}
     </>
   );
