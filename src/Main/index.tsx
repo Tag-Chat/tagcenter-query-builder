@@ -1,7 +1,13 @@
 import React, { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
+import Router from "./Routes";
 
 const Main = () => {
-  return <h1>teste</h1>;
+  return (
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+  );
 };
 
 export default Main;
