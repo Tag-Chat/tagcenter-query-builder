@@ -7,7 +7,7 @@ import * as S from "./style";
 const QueryBuilder = () => {
   return (
     <S.Container>
-      <S.GroupBlock>teste</S.GroupBlock>
+      <S.GroupBlock></S.GroupBlock>
     </S.Container>
   );
 };

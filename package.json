@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@types/node": "^17.0.35",
+    "@types/react-input-mask": "^3.0.1",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "nookies": "^2.5.2",
