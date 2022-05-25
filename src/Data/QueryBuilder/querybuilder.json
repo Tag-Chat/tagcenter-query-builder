@@ -1,0 +1,511 @@
+{
+  "items": [
+    {
+      "name": "Campo",
+      "action": false,
+      "type": "select",
+      "valueDefault": [
+        "Cargo",
+        "Celular",
+        "Cidade",
+        "Email",
+        "Empresa",
+        "Estado",
+        "Facebook",
+        "Linkedin",
+        "Nome",
+        "País",
+        "Telefone",
+        "Twitter",
+        "Website"
+      ],
+      "operator": [
+        {
+          "value": [
+            "no dia",
+            "entre as datas",
+            "antes ou igual a",
+            "despois ou igual a",
+            "nos últimos",
+            "mais do que",
+            "menos do que",
+            "exatamente"
+          ]
+        }
+      ],
+      "typeItemOperator": "select",
+      "customItems": [],
+      "typeCustomItems": "select"
+    },
+    {
+      "name": "Tag",
+      "action": false,
+      "type": "select",
+      "valueDefault": ["Contém a tag", "Não contém a tag"],
+      "operator": { "value": ["vem da api"] },
+      "typeItemOperator": "select",
+      "customItems": [],
+      "typeItemCustomItems": "select"
+    },
+    {
+      "name": "Data de Criação",
+      "action": false,
+      "type": "select",
+      "valueDefault": [
+        "No dia",
+        "Entre as datas",
+        "Antes ou igual a",
+        "Depois ou igual a"
+      ],
+      "operator": "",
+      "typeItemOperator": "Data",
+      "customItems": [],
+      "typeItemCustomItems": "select"
+    },
+    {
+      "name": "Dono do Lead",
+      "action": false,
+      "type": "select",
+      "valueDefault": ["É", "Não é"],
+      "operator": [{ "value": ["vem da api"] }],
+      "typeItemOperator": "Select",
+      "customItems": [],
+      "typeItemCustomItems": "Select"
+    },
+    {
+      "name": "Bounce",
+      "action": false,
+      "type": "select",
+      "valueDefault": ["O lead é", "O lead não é"],
+      "operator": { "value": ["Soft Bounce", "Hard Bounce"] },
+      "typeItemOperator": "select"
+    },
+    {
+      "name": "Converteu",
+      "action": true,
+      "type": "select",
+      "valueDefault": ["no evento", "a partir da origem"],
+      "operator": [
+        {
+          "label": "no evento",
+          "value": [
+            "no dia",
+            "entre as datas",
+            "antes ou igual a",
+            "despois ou igual a",
+            "nos últimos",
+            "mais do que",
+            "menos do que",
+            "exatamente"
+          ]
+        },
+        {
+          "label": "a partir da origem",
+          "value": [
+            "no dia",
+            "entre as datas",
+            "antes ou igual a",
+            "despois ou igual a",
+            "nos últimos",
+            "mais do que",
+            "menos do que",
+            "exatamente"
+          ]
+        }
+      ],
+      "typeItemOperator": "select",
+      "customInput": [
+        {
+          "label": "no dia",
+          "input": ["Data"]
+        },
+        {
+          "label": "entre as datas",
+          "input": ["Data", "Data"]
+        },
+        {
+          "label": "antes ou igual",
+          "input": ["Data"]
+        },
+        {
+          "label": "despois ou igual",
+          "input": ["Data"]
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        },
+        {
+          "label": "mais do que",
+          "input": ["Select Number"]
+        },
+        {
+          "label": "mais do que",
+          "input": ["Select Number"]
+        },
+        {
+          "label": "exatamente",
+          "input": ["Select Number"]
+        }
+      ],
+      "customItems": []
+    },
+    {
+      "name": "Não Converteu",
+      "action": true,
+      "type": "select",
+      "valueDefault": ["no evento", "a partir da origem"],
+      "operator": [
+        {
+          "label": "no evento",
+          "value": [
+            "no dia",
+            "entre as datas",
+            "antes ou igual a",
+            "despois ou igual a",
+            "nos últimos",
+            "mais do que",
+            "menos do que",
+            "exatamente"
+          ]
+        },
+        {
+          "label": "a partir da origem",
+          "value": [
+            "no dia",
+            "entre as datas",
+            "antes ou igual a",
+            "despois ou igual a",
+            "nos últimos",
+            "mais do que",
+            "menos do que",
+            "exatamente"
+          ]
+        }
+      ],
+      "typeItemOperator": "select",
+      "customInput": [
+        {
+          "label": "no dia",
+          "input": ["Data"]
+        },
+        {
+          "label": "entre as datas",
+          "input": ["Data", "Data"]
+        },
+        {
+          "label": "antes ou igual",
+          "input": ["Data"]
+        },
+        {
+          "label": "despois ou igual",
+          "input": ["Data"]
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        },
+        {
+          "label": "mais do que",
+          "input": ["Select Number"]
+        },
+        {
+          "label": "mais do que",
+          "input": ["Select Number"]
+        },
+        {
+          "label": "exatamente",
+          "input": ["Select Number"]
+        }
+      ],
+      "customItems": []
+    },
+    {
+      "name": "Dados de conversão",
+      "action": false,
+      "item": "select",
+      "valueDefault": [
+        "Campanha (utm_campaign)",
+        "Cargo",
+        "Celular",
+        "Cidade",
+        "Dispositivo",
+        "Email",
+        "Empresa",
+        "Estado",
+        "Identificador",
+        "Linkedin",
+        "Nome",
+        "Mídia (utm_medium)",
+        "País",
+        "Telefone",
+        "Twitter",
+        "User Agent",
+        "Website"
+      ],
+      "operator": [
+        {
+          "value": [
+            "contém",
+            "não contém",
+            "é igual a",
+            "está preenchido",
+            "não está preenchido"
+          ]
+        }
+      ],
+      "typeItemOperator": "select",
+      "response": {
+        "item": "text",
+        "type": "text"
+      }
+    },
+    {
+      "name": "Oportunidade",
+      "action": false,
+      "type": "select",
+      "valueDefault": ["O Lead é uma", "O Lead não é uma"],
+      "operator": [
+        {
+          "value": ["oportunidade", "oportunidade perdida"]
+        }
+      ],
+      "typeItemOperator": "select",
+      "response": null
+    },
+    {
+      "name": "Venda",
+      "action": true,
+      "type": "select",
+      "valueDefault": ["O Lead possui venda", "O Lead não possui venda"],
+      "operator": [
+        {
+          "value": ["oportunidade", "oportunidade perdida"]
+        }
+      ],
+      "typeItemOperator": "select",
+      "response": null
+    },
+    {
+      "name": "Estágio do funil",
+      "action": true,
+      "type": "select",
+      "valueDefault": ["é", "não é"],
+      "operator": [
+        {
+          "value": ["Lead", "Lead qualificado", "Cliente"]
+        }
+      ],
+      "typeItemOperator": "select",
+      "response": null
+    },
+    {
+      "name": "Perfil",
+      "action": false,
+      "type": "select",
+      "valueDefault": ["é", "não é"],
+      "operator": [
+        {
+          "value": ["A", "B", "C", "D"]
+        }
+      ],
+      "typeItemOperator": "select",
+      "response": null
+    },
+    {
+      "item": "Interesse",
+      "action": false,
+      "typeItem": "select",
+      "valueDefault": ["é", "não é", "é maior que", "é menor que"],
+      "operator": [""],
+      "typeItemOperator": "select number",
+      "response": null
+    },
+    {
+      "item": "Visitou a página",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["qualquer página"],
+      "response": null
+    },
+    {
+      "item": "Não visitou a página",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["qualquer página"],
+      "response": null
+    },
+    {
+      "item": "Recebeu o email",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["qualquer página"],
+      "response": null
+    },
+    {
+      "item": "Não recebeu o email",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["qualquer página"],
+      "response": null
+    },
+    {
+      "item": "Abriu o email",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["qualquer página"],
+      "response": null
+    },
+    {
+      "item": "Recebeu e não abriu o email",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["qualquer página"],
+      "response": null
+    },
+    {
+      "item": "Clicou no link do email",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["qualquer página"],
+      "response": null
+    },
+    {
+      "item": "Recebeu e não clicou no link do email",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["qualquer página"],
+      "response": null
+    },
+    {
+      "item": "Abriu o email",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["qualquer página"],
+      "response": null
+    },
+    {
+      "item": "Iniciou o fluxo",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["qualquer página"],
+      "response": null
+    },
+    {
+      "item": "Não iniciou o fluxo",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["qualquer página"],
+      "response": null
+    },
+    {
+      "item": "Completou o fluxo",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["qualquer página"],
+      "response": null
+    },
+    {
+      "item": "Recebeu o email do fluxo",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["qualquer página"],
+      "response": null
+    },
+    {
+      "item": "Não recebeu o email do fluxo",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["qualquer página"],
+      "response": null
+    },
+    {
+      "item": "Abriu o email do fluxo",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["qualquer página"],
+      "response": null
+    },
+    {
+      "item": "Não recebeu o email",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["qualquer página"],
+      "response": null
+    },
+    {
+      "item": "Clicou no link do email",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["qualquer página"],
+      "response": null
+    },
+    {
+      "item": "Recebeu e não clicou no link do email",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["qualquer página"],
+      "response": null
+    },
+    {
+      "item": "Envio de comunicação",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": [
+        "O Lead possui base legal para comunicação",
+        "O Lead não possui base legal para comunicação",
+        "Sem informações"
+      ],
+      "response": null
+    },
+    {
+      "item": "CRM",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": [
+        "Oportunidade criada",
+        "Oportunidade perdida",
+        "Oportunidade atualizada",
+        "Venda",
+        "Tarefa Criada",
+        "Tarefa Atualizada"
+      ],
+      "response": null
+    },
+    {
+      "item": "E-Commerce",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": [
+        "Carrinho abandonado",
+        "Carrinho abandonado - item",
+        "Pedido realizado",
+        "Pedido realizado - item"
+      ],
+      "response": null
+    },
+    {
+      "item": "Chat",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": ["Chat finalizado", "Chat iniciado"],
+      "response": null
+    },
+    {
+      "item": "Mídia",
+      "action": true,
+      "typeItem": "select",
+      "valueDefault": [
+        "Reprodução de mídia iniciada",
+        "Reprodução de mídia finalizada"
+      ],
+      "response": null
+    }
+  ]
+}

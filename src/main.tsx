@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { GlobalStyles } from "./presentation/Styles/global";
-import { CoreProvider } from "./presentation/Hooks/Context";
+import { GlobalStyles } from "./Presentation/Styles/global";
+import { CoreProvider } from "./Presentation/Hooks/Context";
 
 import Main from "./Main";
 

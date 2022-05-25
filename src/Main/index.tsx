@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 
-import QueryBuilder from "../presentation/Components/Organisms/QueryBuilder";
-
 const Main = () => {
-  return <QueryBuilder />;
+  return <h1>teste</h1>;
 };
 
 export default Main;

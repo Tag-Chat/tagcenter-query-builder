@@ -19,7 +19,13 @@ const Dark = {
   textImage: "#14151A",
   textDark: "#14151A",
 
+  //Fonts
+  fontFamilyPrimary: "Nunito",
+  fontFamilySecundary: "DM Sans",
+
   // SIZE
+  size100: "0.25rem",
+  size200: "0.50rem",
   size300: "0.75rem",
   size400: "1rem",
   size500: "1.33rem",

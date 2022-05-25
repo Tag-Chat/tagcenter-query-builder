@@ -30,7 +30,13 @@ declare module "styled-components" {
     iconCalendarInDay: string;
     iconCalendarInAdvance: string;
 
+    //Font
+    fontFamilyPrimary: string;
+    fontFamilySecundary: string;
+
     //Size
+    size100: string;
+    size200: string;
     size300: string;
     size400: string;
     size500: string;

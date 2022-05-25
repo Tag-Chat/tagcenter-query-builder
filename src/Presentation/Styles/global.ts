@@ -1,7 +1,65 @@
 import styled from "styled-components";
-import { pxToRem } from "../../../Styles/global";
+import { createGlobalStyle } from "styled-components";
 
-export const Container = styled.div`
+import "antd/dist/antd.css";
+
+import "react-awesome-query-builder/lib/css/styles.css";
+import "react-awesome-query-builder/lib/css/compact_styles.css";
+
+export const pxToRem = (value: number) => {
+  const result = value / 16;
+
+  return `${result}rem`;
+};
+
+export const GlobalStyles = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+Pro:wght@200;300;400;700&display=swap');
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed,
+  figure, figcaption, footer, header, hgroup,
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  article, aside, details, figcaption, figure,
+  footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+  body {
+    line-height: 1;
+    background: ${(props) => props.theme.backgroundBody};
+    color: ${(props) => props.theme.textPrimary};
+    font-family: ${(props) => props.theme.fontFamilyPrimary};
+    font-size: ${pxToRem(16)};
+  }
+  ol, ul {
+    list-style: none;
+  }
+  blockquote, q {
+    quotes: none;
+  }
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+    content: '';
+    content: none;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
   .qb-drag-handler,
   .qb-draggable,
   .query-builder {
@@ -11,19 +69,16 @@ export const Container = styled.div`
     -ms-user-select: none;
     user-select: none;
   }
-
   .rule--header:after {
     content: "";
     display: table;
     clear: both;
   }
-
   .group--header,
   .group--footer {
     display: flex;
     align-items: center;
   }
-
   .query-builder {
     overflow: hidden;
   }
@@ -32,19 +87,15 @@ export const Container = styled.div`
   .query-builder *::after {
     box-sizing: border-box;
   }
-
   /** COMMON **/
   body.qb-dragging .ant-tooltip {
     display: none;
   }
-
   .query-builder {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: ${pxToRem(14)};
     line-height: 1.25;
     margin: ${pxToRem(16)};
   }
-
   .query-builder.qb-dragging {
     cursor: -webkit-grabbing !important;
     cursor: grabbing !important;
@@ -52,92 +103,74 @@ export const Container = styled.div`
   .query-builder.qb-dragging button {
     pointer-events: none;
   }
-
   .group {
-    background: rgba(250, 240, 210, 0.5);
-    border: ${pxToRem(1)} solid #dcc896;
+    background: ${(props) => props.theme.backgroundInputFormV2};
+    border: ${pxToRem(1)} solid ${(props) => props.theme.borderLine};
   }
-
   .rule {
-    background-color: white;
-    border: ${pxToRem(1)} solid transparent;
+    background: ${(props) => props.theme.backgroundInputFormV2};
+    border: ${pxToRem(1)} solid ${(props) => props.theme.borderLine};
     padding: ${pxToRem(10)};
   }
-
   .rule-with-error .rule {
     border: ${pxToRem(1)} solid #e0a1a1;
   }
-
   .rule--body--wrapper {
     flex: 1;
     display: flex;
     flex-direction: column;
   }
-
   .rule--error {
     color: red;
     margin-bottom: ${pxToRem(-5)};
     margin-top: ${pxToRem(5)};
   }
-
   .group-or-rule {
     border-radius: 5px;
     position: relative;
   }
-
   .rule_group {
-    background: rgba(255, 252, 242, 0.5);
-    border: 1px solid #f9f1dd;
+    background: ${(props) => props.theme.backgroundInputFormV2};
+    border: ${pxToRem(1)} solid ${(props) => props.theme.borderLine};
   }
-
   .qb-draggable {
     pointer-events: none;
     position: absolute;
     opacity: 0.7;
     z-index: 1000;
   }
-
   .qb-placeholder {
     border: 1px dashed gray;
   }
-
   .locked {
     border: 1px dashed red;
   }
-
   /* slider */
   .ant-tooltip-inner {
     min-height: 18px;
   }
-
   .ant-slider {
     margin-bottom: 4px;
     margin-top: 4px;
   }
-
   .ant-slider-with-marks {
     margin-bottom: 10px;
     margin-top: 4px;
   }
-
   .ant-slider-track {
     visibility: visible !important;
   }
-
   /* tree */
   .ant-select-tree-dropdown > div[role="listbox"] {
     outline: none;
   }
-
   ul.ant-select-selection__rendered {
     margin-right: 11px;
   }
-
   /* for antd v4 default is 32 - too big */
   .ant-select-item {
     min-height: 22px;
   }
-
   /** GROUP **/
   .group--children {
     padding-left: 24px;
@@ -201,7 +234,6 @@ export const Container = styled.div`
     > .group-or-rule::after {
     display: none;
   }
-
   .group--children.hide--line
     > .group-or-rule-container
     > .group-or-rule::before,
@@ -210,31 +242,25 @@ export const Container = styled.div`
     > .group-or-rule::after {
     border-color: rgba(128, 128, 128, 0.1);
   }
-
   .qb-draggable::before,
   .qb-draggable::after {
     display: none;
   }
-
   .qb-drag-handler {
     cursor: -webkit-grabbing;
     cursor: grabbing;
   }
-
   .group--drag-handler {
     margin-right: 8px;
     position: relative;
     top: 3px;
   }
-
   .group--conjunctions .group--drag-handler {
     margin-left: 10px;
   }
-
   .group--conjunctions.hide--conj {
     opacity: 0.3;
   }
-
   .group--actions {
     margin-left: 10px;
     flex: 1;
@@ -258,12 +284,10 @@ export const Container = styled.div`
   .group--actions .action--DELETE {
     margin-top: -1px;
   }
-
   /** CASE_GROUP **/
   .case_group {
     border-width: 2px;
   }
-
   .switch_group
     > .group--children
     > .group-or-rule-container
@@ -274,7 +298,6 @@ export const Container = styled.div`
     > .group-or-rule::after {
     height: calc(50% + 12px);
   }
-
   .case_group--body {
     display: flex;
     flex-direction: row;
@@ -291,7 +314,6 @@ export const Container = styled.div`
     margin-bottom: 0;
     margin-right: 10px;
   }
-
   /** RULE_GROUP **/
   .rule_group {
     display: flex;
@@ -333,22 +355,18 @@ export const Container = styled.div`
     width: 10px;
     height: calc(50% + 8px);
   }
-
   /** RULE_GROUP_EXT **/
   .group--header.hide--drag.with--conjs > .group--field--count--rule {
     margin-left: 20px;
   }
-
   /** RULE **/
   .rule {
     flex: 1;
     display: flex;
   }
-
   .rule {
     padding: 5px;
   }
-
   .rule_group {
     padding-left: 5px;
   }
@@ -358,13 +376,11 @@ export const Container = styled.div`
     align-items: center;
     padding-left: 10px;
   }
-
   .rule--drag-handler {
     display: flex;
     align-items: center;
     margin-right: 8px;
   }
-
   .rule--field,
   .group--field,
   .rule--operator,
@@ -379,7 +395,6 @@ export const Container = styled.div`
   .rule--after-widget {
     display: inline-block;
   }
-
   .mui .widget--sep,
   .mui .operator--options--sep,
   .mui .rule--func--bracket-before,
@@ -395,30 +410,24 @@ export const Container = styled.div`
   .mui .widget--valuesrc {
     vertical-align: bottom;
   }
-
   .rule--operator,
   .widget--widget,
   .widget--valuesrc,
   .widget--sep {
     margin-left: 10px;
   }
-
   .widget--valuesrc {
     margin-right: -8px;
   }
-
   .widget--valuesrc span i {
     transform: rotate(90deg);
   }
-
   .operator--options--sep {
     margin-right: 10px;
   }
-
   div.tooltip-inner {
     max-width: 500px;
   }
-
   .rule--field label,
   .group--field label,
   .rule--operator label,
@@ -426,7 +435,6 @@ export const Container = styled.div`
     display: block;
     font-weight: bold;
   }
-
   /** CONJUNCTION **/
   .conjunction {
     display: inline-block;
@@ -443,16 +451,16 @@ export const Container = styled.div`
     display: none;
   }
   .conjunction[data-state="active"] label {
-    background-color: #3276b1;
-    border-color: #285e8e;
+    background: ${(props) => props.theme.primary300};
+    border-color: ${(props) => props.theme.primary300};
   }
   .conjunction[data-state="inactive"] label {
-    background-color: #428bca;
-    border-color: #357ebd;
+    background: ${(props) => props.theme.primary300};
+    border-color: ${(props) => props.theme.primary300};
   }
   .conjunction[data-state="inactive"] label:hover {
-    background-color: #3276b1;
-    border-color: #285e8e;
+    background: ${(props) => props.theme.primary300};
+    border-color: ${(props) => props.theme.primary300};
   }
   .conjunction:first-child label {
     border-radius: 3px 0 0 3px;
@@ -463,7 +471,6 @@ export const Container = styled.div`
   .conjunction:first-child:last-child {
     border-radius: 3px;
   }
-
   /** FUNC **/
   .rule--func--wrapper,
   .rule--func,
@@ -477,31 +484,25 @@ export const Container = styled.div`
   .rule--func--arg-label-sep {
     display: inline-block;
   }
-
   .rule--func--bracket-before,
   .rule--func--bracket-after {
     margin-left: 3px;
     margin-right: 3px;
   }
-
   .rule--func--bracket-before {
     margin-left: 5px;
   }
-
   .rule--func--arg-value > .rule--widget {
     margin-left: -10px;
   }
-
   .rule--func--arg-sep {
     margin-left: 3px;
     margin-right: 6px;
   }
-
   .rule--func--arg-label-sep {
     margin-left: 1px;
     margin-right: 6px;
   }
-
   /** Minimalism **/
   .qb-lite .group--drag-handler,
   .qb-lite .group--actions {
@@ -567,7 +568,6 @@ export const Container = styled.div`
     overflow: hidden !important;
     opacity: 0 !important;
   }
-
   /** Vertical padding **/
   .group--header,
   .group--footer {
@@ -576,7 +576,6 @@ export const Container = styled.div`
     margin-top: 10px;
     margin-bottom: 10px;
   }
-
   .group-or-rule-container {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -588,12 +587,10 @@ export const Container = styled.div`
   .group-or-rule-container:last-child {
     margin-bottom: 0px !important;
   }
-
   .group--children {
     margin-top: 10px;
     margin-bottom: 10px;
   }
-
   /** Shrink textarea **/
   .rule--body.can--shrink--value {
     display: flex;
@@ -615,27 +612,22 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
   }
-
   .rule--value > .rule--widget > .widget--valuesrc .anticon {
     height: 100%;
   }
   .rule--value > .rule--widget > .widget--valuesrc .anticon svg {
     height: 100%;
   }
-
   .svg-inline--fa {
     pointer-events: none;
   }
-
   .group--conjunctions,
   .group--children {
     margin: 0px !important;
   }
-
   .group {
     padding-left: 0px;
   }
-
   .group--children {
     padding-left: 10px !important;
   }
@@ -649,35 +641,29 @@ export const Container = styled.div`
     > .group-or-rule::before {
     top: -7px;
   }
-
   .group--conjunctions {
     margin-left: 4px !important;
   }
-
   .group-or-rule-container {
     margin-top: 5px;
     margin-bottom: 5px;
     padding-right: 5px;
   }
-
   .group--children {
     margin-top: 5px !important;
     margin-bottom: 5px !important;
   }
-
   .group--header,
   .group--footer {
     margin-top: 5px !important;
     margin-bottom: 5px !important;
   }
-
   .rule--operator,
   .widget--widget,
   .widget--valuesrc,
   .widget--sep {
     margin-left: 5px;
   }
-
   .rule_group .group--actions {
     margin-left: 5px;
   }
@@ -698,26 +684,84 @@ export const Container = styled.div`
     left: -7px;
     width: 7px;
   }
-
   .widget--valuesrc {
     margin-right: -3px;
   }
-
   .operator--options--sep {
     margin-right: 5px;
   }
-
   .group--header {
     padding-left: 0;
     padding-right: 5px;
     margin: 0;
   }
-
   .group--drag-handler {
     margin-left: 5px;
   }
-
   .rule--func--arg-value > .rule--widget {
     margin-left: -5px;
+  }
+  //Custom
+  button.ant-btn.ant-btn-default.ant-btn-sm.action.action--ADD-RULE,
+  button.ant-btn.ant-btn-default.ant-btn-sm.action.action--ADD-GROUP{
+    background: ${(props) => props.theme.backgroundInput};
+    color: ${(props) => props.theme.textPrimary};
+    border: ${pxToRem(1)} solid ${(props) => props.theme.textButtons};
+    border-radius: ${(props) => props.theme.size100};
+    margin: 0 ${(props) => props.theme.size300};
+    &:hover{
+      color: ${(props) => props.theme.primary300};
+    }
+  }
+  .ant-select:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector{
+    background: ${(props) => props.theme.backgroundInput};
+    color: ${(props) => props.theme.textPrimary};
+    border: ${pxToRem(1)} solid ${(props) => props.theme.textButtons};
+    border-radius: ${(props) => props.theme.size100};
+  }
+  .ant-select-dropdown{
+    background: ${(props) => props.theme.backgroundCard};
+    color: ${(props) => props.theme.textPrimary};
+  }
+  .ant-select-item-option-active:not(.ant-select-item-option-disabled){
+    background: ${(props) => props.theme.primary300};
+    color: ${(props) => props.theme.textDark};
+  }
+  .ant-select-item{
+    color: ${(props) => props.theme.textPrimary};
+    &:hover{
+      background: ${(props) => props.theme.primary300};
+      color: ${(props) => props.theme.textDark};
+    }
+  }
+  .ant-btn,
+  .ant-btn-sm,
+  .ant-btn-group .ant-btn-group-sm,
+  .ant-btn-group .ant-btn-primary:not(:first-child):not(:last-child){
+    background: ${(props) => props.theme.backgroundInputFormV2};
+    color: ${(props) => props.theme.primary300};
+    border: ${pxToRem(1)} solid ${(props) => props.theme.primary300};
+    border-radius: ${(props) => props.theme.size100};
+    &:hover,
+    &:active,
+    &:focus{
+      background: ${(props) => props.theme.primary300};
+      color: ${(props) => props.theme.textDark};
+      border: ${pxToRem(1)} solid ${(props) => props.theme.primary300};
+    }
+  }
+  .group--children > .group-or-rule-container > .group-or-rule::before, .group--children > .group-or-rule-container > .group-or-rule::after{
+    border-color: ${(props) => props.theme.primary300};
+  }
+  .ant-input-number{
+    background: ${(props) => props.theme.backgroundInputFormV2};
+    color: ${(props) => props.theme.primary300};
+    border: ${pxToRem(1)} solid ${(props) => props.theme.primary300};
+    border-radius: ${(props) => props.theme.size100};
+    &:hover,
+    &:active,
+    &:focus{
+      border: ${pxToRem(1)} solid ${(props) => props.theme.primary300};
+    }
   }
 `;
