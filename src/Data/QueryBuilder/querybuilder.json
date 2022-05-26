@@ -37,7 +37,8 @@
       "customItems": [],
       "typeCustomItems": "select",
       "response": {
-        "type": "text"
+        "type": "text",
+        "label": "use trecho ou termo inteiro"
       }
     },
     {
@@ -61,8 +62,8 @@
         "Antes ou igual a",
         "Depois ou igual a"
       ],
-      "operator": "",
-      "typeItemOperator": "Data",
+      "operator": null,
+      "typeItemOperator": "data",
       "customItems": [],
       "typeItemCustomItems": "select",
       "response": null
@@ -270,8 +271,8 @@
       ],
       "typeItemOperator": "select",
       "response": {
-        "item": "text",
-        "type": "text"
+        "type": "text",
+        "label": "use trecho ou termo inteiro"
       }
     },
     {
@@ -292,12 +293,6 @@
       "action": true,
       "type": "select",
       "valueDefault": ["O Lead possui venda", "O Lead não possui venda"],
-      "operator": [
-        {
-          "value": ["oportunidade", "oportunidade perdida"]
-        }
-      ],
-      "typeItemOperator": "select",
       "response": null
     },
     {

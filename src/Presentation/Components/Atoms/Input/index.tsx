@@ -11,7 +11,7 @@ import DefaultLabel from "../Label";
 import Error from "../Error";
 import { InputProps } from "../../../../Validation/Protocols/TypeInputMaskProps";
 
-const Input: React.FC<InputProps> = ({
+export const Input: React.FC<InputProps> = ({
   label,
   name,
   type,
@@ -77,5 +77,3 @@ const Input: React.FC<InputProps> = ({
     </>
   );
 };
-
-export default Input;

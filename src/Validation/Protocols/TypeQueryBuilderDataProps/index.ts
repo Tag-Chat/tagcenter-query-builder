@@ -1,19 +1,33 @@
-interface customItemsProps {
+export interface ResponsesProps {
+  label: string;
+  type: string;
+}
+
+export interface CustomItemsProps {
   label?: string;
   value?: string[];
 }
 
-interface CustomProps {
+export interface CustomProps {
   label?: string;
   input?: string[];
 }
 
-interface OperatorProps {
+export interface ValueProps {
+  value: string;
+  label: string;
+}
+
+export interface OperatorProps {
   label?: string;
   value?: string[] | string;
 }
+export enum TypeItemOperatorProps {
+  Select = "select",
+  Data = "data",
+}
 
-interface QueryBuilderDataProps {
+export interface QueryBuilderDataProps {
   name?: string;
   action?: boolean;
   type?: string;
@@ -21,16 +35,9 @@ interface QueryBuilderDataProps {
   operator?: OperatorProps[];
   typeItemOperator?: string;
   customInput?: CustomProps[];
-  customItems?: customItemsProps[];
-  response?:
-    | null
-    | string
-    | {
-        item: "text";
-        type: "text";
-      };
+  customItems?: CustomItemsProps[];
+  response?: null | ResponsesProps;
   typeCustomItems?: string;
-  typeItem: "select";
 }
 
 export interface TypeQueryBuilderDataProps {

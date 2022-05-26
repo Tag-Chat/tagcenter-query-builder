@@ -2,33 +2,46 @@ import React, { useState, useEffect } from "react";
 
 import { useForm } from "react-hook-form";
 import { queryBuilderData } from "../../../../Data";
-import { TypeQueryBuilderDataProps } from "../../../../Validation/Protocols/TypeQueryBuilderDataProps";
+import {
+  QueryBuilderDataProps,
+  TypeQueryBuilderDataProps,
+  ResponsesProps,
+  OperatorProps,
+  ValueProps,
+  TypeItemOperatorProps,
+} from "../../../../Validation/Protocols/TypeQueryBuilderDataProps";
 
-import Input from "../../Atoms/Input";
+import { Input } from "../../Atoms/Input";
 import { Button } from "../../Atoms/Button";
 import Select from "../../Atoms/Select";
 
 import * as S from "./style";
 
-interface ValueProps {
-  value: string;
-  label: string;
-}
-
 const QueryBuilder = () => {
   const [data, setData] = useState<any>(queryBuilderData);
   const [conditionActive, setConditionActive] = useState();
   const [operatorActive, setOperatorActive] = useState<boolean>();
-  const [conditionsOptions, setConditionsOptions] = useState([
-    {
-      value: "e",
-      label: "E",
-    },
-    {
-      value: "ou",
-      label: "OU",
-    },
-  ]);
+  const [actionActive, setActionActive] = useState<boolean>();
+  const [responseActive, setResponseActive] = useState<boolean>();
+  const [dateActive, setDateActive] = useState<boolean>();
+  const [conditionsOptions, setConditionsOptions] = useState({
+    selectCondition: [
+      {
+        value: "e",
+        label: "E",
+      },
+      {
+        value: "ou",
+        label: "OU",
+      },
+    ],
+    itemOption: [
+      {
+        value: "",
+        label: "",
+      },
+    ],
+  });
   const [itemOption, setItemOption] = useState<ValueProps[]>([
     {
       value: "",
@@ -50,6 +63,11 @@ const QueryBuilder = () => {
     },
   ]);
 
+  const [responseOption, setResponseOption] = useState<ResponsesProps>({
+    type: "",
+    label: "",
+  });
+
   const {
     control,
     register,
@@ -58,6 +76,7 @@ const QueryBuilder = () => {
   } = useForm();
 
   const watchCondition = watch("condition");
+  const watchOperator = watch("operator");
 
   useEffect(() => {
     let options: ValueProps[] = [];
@@ -73,7 +92,9 @@ const QueryBuilder = () => {
         },
       ];
     }
-    setItemOption(options);
+
+    const response = conditionsOptions;
+    response.itemOption = options;
 
     setConditionActive(watchCondition);
 
@@ -91,6 +112,14 @@ const QueryBuilder = () => {
       }
     });
     setSubItemOption(subOptions);
+
+    const getAction = data?.items.map((item: QueryBuilderDataProps) => {
+      if (item.name === conditionActive && item.action === true) {
+        setActionActive(true);
+      } else if (item.name === conditionActive && item.action === false) {
+        setActionActive(false);
+      }
+    });
 
     const getOperator = data?.items.map((item: any) => {
       if (item.name === conditionActive) {
@@ -124,9 +153,24 @@ const QueryBuilder = () => {
             }
           }
           setOperatorOption(operator);
+        } else if (item?.operator === null) {
+          setOperatorActive(false);
+
+          if (item?.typeItemOperator === TypeItemOperatorProps.Data) {
+            setDateActive(true);
+          }
         } else {
           setOperatorActive(false);
         }
+      }
+    });
+
+    const getResponseCondition = data?.items?.map((item: any) => {
+      if (item.response !== null && item?.name === conditionActive) {
+        setResponseOption(item.response);
+        setResponseActive(true);
+      } else if (item.response === null && item?.name === conditionActive) {
+        setResponseActive(false);
       }
     });
   }, [watchCondition, conditionActive]);
@@ -135,40 +179,74 @@ const QueryBuilder = () => {
     <S.Container>
       <S.GroupBlock>
         <S.HeaderGroupBlock>
-          Grupo 1 Quero Leads que atendam
+          <S.TitleHeader>Grupo 1 Quero Leads que atendam</S.TitleHeader>
           <S.SelectCondition>
             <Select
               name="allcondition"
               register={register}
-              options={conditionsOptions}
+              options={conditionsOptions.selectCondition}
             />
           </S.SelectCondition>
         </S.HeaderGroupBlock>
         <S.ContentCondition>
-          <S.SelectContent>
-            <Select name="condition" register={register} options={itemOption} />
-          </S.SelectContent>
-          {watchCondition && (
-            <>
-              <S.SelectContent>
-                <Select
-                  name="operator"
-                  register={register}
-                  options={subItemOption}
-                />
-              </S.SelectContent>
-              {operatorActive && (
+          <S.ContentContainer>
+            <S.SelectContent>
+              <Select
+                name="condition"
+                register={register}
+                options={conditionsOptions.itemOption}
+              />
+            </S.SelectContent>
+            {watchCondition && (
+              <>
                 <S.SelectContent>
                   <Select
                     name="operator"
                     register={register}
-                    options={operatorOption}
+                    options={subItemOption}
                   />
                 </S.SelectContent>
-              )}
-            </>
-          )}
+                {watchOperator && operatorActive && (
+                  <S.SelectContent>
+                    <Select
+                      name="operatorOption"
+                      register={register}
+                      options={operatorOption}
+                    />
+                  </S.SelectContent>
+                )}
+                {watchOperator && responseActive && (
+                  <S.InputContainer>
+                    <Input
+                      name={"teste"}
+                      label={`${responseOption.label}`}
+                      control={control}
+                      usePadding={false}
+                    />
+                  </S.InputContainer>
+                )}
+                {watchOperator && dateActive && (
+                  <>
+                    <h1>tem campo data</h1>
+                  </>
+                )}
+              </>
+            )}
+          </S.ContentContainer>
+          <S.ContentContainer>
+            {actionActive && (
+              <S.GroupAction>
+                <Button maxWidth={"150px"} sizeButton={"sm"}>
+                  Adicionar ações
+                </Button>
+              </S.GroupAction>
+            )}
+          </S.ContentContainer>
         </S.ContentCondition>
+
+        <S.GroupAction>
+          <Button maxWidth={"290px"}>Criar outra grupo</Button>
+        </S.GroupAction>
       </S.GroupBlock>
     </S.Container>
   );
