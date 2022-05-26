@@ -15,7 +15,7 @@ import * as S from "./style";
 interface DataTimeProps {
   title: string;
   place?: string;
-  name?: string;
+  name: string;
   control?: Control<FieldValues, object>;
   validation?: RegisterOptions;
   error?: string;
@@ -44,7 +44,7 @@ const DataTime: React.FC<DataTimeProps> = ({
   };
 
   const dateField = useCallback(
-    ({ field: { onBlur, ref, onChange, value } }) => {
+    ({ field: { onBlur, ref, onChange, value } }: any) => {
       if (!control) return <></>;
       const props = { ...inputProps, onBlur };
       if (reseted) {
@@ -89,7 +89,7 @@ const DataTime: React.FC<DataTimeProps> = ({
             render={dateField}
           />
         ) : (
-          <Datetime locale={language} inputProps={inputProps} />
+          <Datetime locale={"pt-BR"} inputProps={inputProps} />
         )}
       </S.Container>
       {error && <Error error={error} />}
