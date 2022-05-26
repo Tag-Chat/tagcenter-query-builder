@@ -9,6 +9,7 @@ import {
   OperatorProps,
   ValueProps,
   TypeItemOperatorProps,
+  MoreActionProps,
 } from "../../../../Validation/Protocols/TypeQueryBuilderDataProps";
 
 import { Input } from "../../Atoms/Input";
@@ -21,11 +22,11 @@ import { DataTime } from "../../Atoms/DataTime";
 const QueryBuilder = () => {
   const [data, setData] = useState<any>(queryBuilderData);
   const [conditionActive, setConditionActive] = useState();
-  const [operatorActive, setOperatorActive] = useState<boolean>();
-  const [actionActive, setActionActive] = useState<boolean>();
-  const [responseActive, setResponseActive] = useState<boolean>();
-  const [dateActive, setDateActive] = useState<boolean>();
-  const [multiDateActive, setMulitDateActive] = useState<boolean>();
+  const [operatorActive, setOperatorActive] = useState<boolean>(false);
+  const [actionActive, setActionActive] = useState<boolean>(false);
+  const [responseActive, setResponseActive] = useState<boolean>(false);
+  const [dateActive, setDateActive] = useState<boolean>(false);
+  const [multiDateActive, setMulitDateActive] = useState<boolean>(false);
   const [actionMoreOptions, setActionMoreOptions] = useState<boolean>(false);
   const [conditionsOptions, setConditionsOptions] = useState([
     {
@@ -63,6 +64,14 @@ const QueryBuilder = () => {
     label: "",
   });
 
+  const [moreActionOption, setMoreActionOption] = useState([
+    {
+      label: "",
+      input: "",
+      value: "",
+    },
+  ]);
+
   const {
     control,
     register,
@@ -78,6 +87,7 @@ const QueryBuilder = () => {
     let options: ValueProps[] = [];
     let subOptions: ValueProps[] = [];
     let operator: ValueProps[] = [];
+    let moreAction: any = [];
 
     if (data?.items) {
       //get options condition
@@ -169,13 +179,28 @@ const QueryBuilder = () => {
             setDateActive(false);
           }
 
-          //getResponseCondition
-          if (item.response !== null && item?.name === conditionActive) {
+          //get Response Condition
+          if (item.response !== null) {
             setResponseOption(item.response);
             setResponseActive(true);
-          } else if (item.response === null && item?.name === conditionActive) {
+          } else if (item.response === null) {
             setResponseActive(false);
           }
+        }
+
+        //get custom Input
+        if (item?.customInput !== null) {
+          for (let i = 0; i < item?.customInput?.length; i++) {
+            moreAction = [
+              ...moreAction,
+              {
+                value: item?.customInput[i].value,
+                label: item?.customInput[i].label,
+                input: item?.customInput[i].input,
+              },
+            ];
+          }
+          setMoreActionOption(moreAction);
         }
       });
     }
@@ -253,7 +278,15 @@ const QueryBuilder = () => {
             {actionActive && (
               <>
                 {actionMoreOptions && (
-                  <S.ActionMoreOptions>teste</S.ActionMoreOptions>
+                  <S.ActionMoreOptions>
+                    <S.SelectContent>
+                      <Select
+                        name="moreActionOption"
+                        register={register}
+                        options={moreActionOption}
+                      />
+                    </S.SelectContent>
+                  </S.ActionMoreOptions>
                 )}
                 <S.GroupAction>
                   <Button
@@ -267,10 +300,17 @@ const QueryBuilder = () => {
               </>
             )}
           </S.ContentContainerAction>
+          <S.ContentContainerAction>
+            <S.GroupAction>
+              <Button maxWidth={"180px"} sizeButton={"sm"}>
+                Criar outra condição
+              </Button>
+            </S.GroupAction>
+          </S.ContentContainerAction>
         </S.ContentCondition>
 
         <S.GroupAction>
-          <Button maxWidth={"290px"}>Criar outra grupo</Button>
+          <Button maxWidth={"290px"}>Criar outro grupo</Button>
         </S.GroupAction>
       </S.GroupBlock>
     </S.Container>

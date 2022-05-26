@@ -22,6 +22,13 @@ export interface OperatorProps {
   label: string;
   value: string[] | string;
 }
+
+export interface MoreActionProps {
+  label: string;
+  input: string | string[];
+  value: { input: string; values: string[] | string } | null;
+}
+
 export enum TypeItemOperatorProps {
   Select = "select",
   Data = "data",
@@ -34,7 +41,7 @@ export interface QueryBuilderDataProps {
   valueDefault: string[];
   operator: OperatorProps[];
   typeItemOperator: string;
-  customInput: CustomProps[] | null;
+  customInput: MoreActionProps[] | null;
   customItems: CustomItemsProps[];
   response: null | ResponsesProps;
   typeCustomItems: string;

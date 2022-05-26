@@ -302,23 +302,29 @@
       "valueDefault": ["O Lead possui venda", "O Lead não possui venda"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -343,23 +349,29 @@
       "typeItemOperator": "select",
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -404,23 +416,29 @@
       "valueDefault": ["qualquer página"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -439,23 +457,29 @@
       "valueDefault": ["qualquer página"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -474,23 +498,29 @@
       "valueDefault": ["qualquer página"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -509,23 +539,29 @@
       "valueDefault": ["qualquer página"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -544,23 +580,29 @@
       "valueDefault": ["qualquer página"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -579,23 +621,29 @@
       "valueDefault": ["qualquer página"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -614,23 +662,29 @@
       "valueDefault": ["qualquer página"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -649,23 +703,29 @@
       "valueDefault": ["qualquer página"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -684,23 +744,29 @@
       "valueDefault": ["qualquer página"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -719,23 +785,29 @@
       "valueDefault": ["qualquer página"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -754,23 +826,29 @@
       "valueDefault": ["qualquer página"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -789,23 +867,29 @@
       "valueDefault": ["qualquer página"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -824,23 +908,29 @@
       "valueDefault": ["qualquer página"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -859,23 +949,29 @@
       "valueDefault": ["qualquer página"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -894,23 +990,29 @@
       "valueDefault": ["qualquer página"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -929,23 +1031,29 @@
       "valueDefault": ["qualquer página"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -964,23 +1072,29 @@
       "valueDefault": ["qualquer página"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",
@@ -999,23 +1113,29 @@
       "valueDefault": ["qualquer página"],
       "customInput": [
         {
-          "label": "em qualquer data"
+          "label": "em qualquer data",
+          "input": "",
+          "value": null
         },
         {
           "label": "no dia",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "entre as datas",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "antes ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "despois ou igual",
-          "input": "Data"
+          "input": "Data",
+          "value": null
         },
         {
           "label": "nos últimos",

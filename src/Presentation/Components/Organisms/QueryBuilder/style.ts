@@ -32,7 +32,7 @@ export const HeaderGroupBlock = styled.div`
 export const TitleHeader = styled.div`
   min-width: ${pxToRem(293)};
 
-  margin-left: 10px;
+  margin-left: ${pxToRem(10)};
 `;
 
 export const SelectCondition = styled.div`
@@ -65,9 +65,9 @@ export const ContentCondition = styled.div`
 export const SelectContent = styled.div`
   max-width: ${pxToRem(220)};
   min-width: ${pxToRem(220)};
-  height: 56px;
+  height: ${pxToRem(47)};
 
-  margin: 0.5rem;
+  margin: ${pxToRem(8)};
 `;
 
 export const GroupAction = styled.div`
@@ -78,7 +78,7 @@ export const GroupAction = styled.div`
   justify-content: flex-start;
   align-items: center;
 
-  margin: 0.5rem;
+  margin: ${pxToRem(8)};
 `;
 
 export const ContentContainer = styled.div`
@@ -109,8 +109,21 @@ export const ContentContainerAction = styled.div`
 
 export const ActionMoreOptions = styled.div`
   width: 100%;
-  height: 47px;
-  margin: 0 0.5rem 0.5rem 0;
+`;
 
-  padding: 0.5rem;
+export const TesteAction = styled.div`
+  width: calc(100% - 1rem);
+  height: ${pxToRem(47)};
+
+  margin: 0 auto;
+
+  background: ${(props) => props.theme.backgroundCard};
+  border: ${pxToRem(1)} solid ${(props) => props.theme.borderLine};
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding-left: 0.5rem;
 `;
