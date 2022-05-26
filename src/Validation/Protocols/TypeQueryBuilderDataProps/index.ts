@@ -4,13 +4,13 @@ export interface ResponsesProps {
 }
 
 export interface CustomItemsProps {
-  label?: string;
-  value?: string[];
+  label: string;
+  value: string[];
 }
 
 export interface CustomProps {
-  label?: string;
-  input?: string[];
+  label: string;
+  input: string[];
 }
 
 export interface ValueProps {
@@ -19,8 +19,8 @@ export interface ValueProps {
 }
 
 export interface OperatorProps {
-  label?: string;
-  value?: string[] | string;
+  label: string;
+  value: string[] | string;
 }
 export enum TypeItemOperatorProps {
   Select = "select",
@@ -28,16 +28,16 @@ export enum TypeItemOperatorProps {
 }
 
 export interface QueryBuilderDataProps {
-  name?: string;
-  action?: boolean;
-  type?: string;
-  valueDefault?: string[];
-  operator?: OperatorProps[];
-  typeItemOperator?: string;
-  customInput?: CustomProps[];
-  customItems?: CustomItemsProps[];
-  response?: null | ResponsesProps;
-  typeCustomItems?: string;
+  name: string;
+  action: boolean;
+  type: string;
+  valueDefault: string[];
+  operator: OperatorProps[];
+  typeItemOperator: string;
+  customInput: CustomProps[] | null;
+  customItems: CustomItemsProps[];
+  response: null | ResponsesProps;
+  typeCustomItems: string;
 }
 
 export interface TypeQueryBuilderDataProps {

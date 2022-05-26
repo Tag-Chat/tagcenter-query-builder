@@ -36,6 +36,7 @@
       "typeItemOperator": "select",
       "customItems": [],
       "typeCustomItems": "select",
+      "customInput": null,
       "response": {
         "type": "text",
         "label": "use trecho ou termo inteiro"
@@ -50,6 +51,7 @@
       "typeItemOperator": "select",
       "customItems": [],
       "typeItemCustomItems": "select",
+      "customInput": null,
       "response": null
     },
     {
@@ -66,6 +68,7 @@
       "typeItemOperator": "data",
       "customItems": [],
       "typeItemCustomItems": "select",
+      "customInput": null,
       "response": null
     },
     {
@@ -77,6 +80,7 @@
       "typeItemOperator": "select",
       "customItems": [],
       "typeItemCustomItems": "select",
+      "customInput": null,
       "response": null
     },
     {
@@ -86,6 +90,7 @@
       "valueDefault": ["O lead é", "O lead não é"],
       "operator": [{ "value": ["Soft Bounce", "Hard Bounce"] }],
       "typeItemOperator": "select",
+      "customInput": null,
       "response": null
     },
     {
@@ -270,6 +275,7 @@
         }
       ],
       "typeItemOperator": "select",
+      "customInput": null,
       "response": {
         "type": "text",
         "label": "use trecho ou termo inteiro"
@@ -286,6 +292,7 @@
         }
       ],
       "typeItemOperator": "select",
+      "customInput": null,
       "response": null
     },
     {
@@ -293,6 +300,34 @@
       "action": true,
       "type": "select",
       "valueDefault": ["O Lead possui venda", "O Lead não possui venda"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
@@ -306,6 +341,34 @@
         }
       ],
       "typeItemOperator": "select",
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
@@ -339,6 +402,34 @@
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
@@ -346,6 +437,34 @@
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
@@ -353,6 +472,34 @@
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
@@ -360,6 +507,34 @@
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
@@ -367,6 +542,34 @@
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
@@ -374,6 +577,34 @@
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
@@ -381,6 +612,34 @@
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
@@ -388,6 +647,34 @@
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
@@ -395,6 +682,34 @@
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
@@ -402,6 +717,34 @@
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
@@ -409,6 +752,34 @@
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
@@ -416,6 +787,34 @@
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
@@ -423,6 +822,34 @@
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
@@ -430,6 +857,34 @@
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
@@ -437,13 +892,69 @@
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
-      "name": "Não recebeu o email",
+      "name": "Não recebeu o email do fluxo",
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
@@ -451,6 +962,34 @@
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {
@@ -458,6 +997,34 @@
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "customInput": [
+        {
+          "label": "em qualquer data"
+        },
+        {
+          "label": "no dia",
+          "input": "Data"
+        },
+        {
+          "label": "entre as datas",
+          "input": "Data"
+        },
+        {
+          "label": "antes ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "despois ou igual",
+          "input": "Data"
+        },
+        {
+          "label": "nos últimos",
+          "input": ["Select", "Select Number"],
+          "value": [
+            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
+          ]
+        }
+      ],
       "response": null
     },
     {

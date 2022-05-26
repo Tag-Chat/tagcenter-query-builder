@@ -24,7 +24,7 @@ interface DataTimeProps {
   timeFormat?: any;
 }
 
-const DataTime: React.FC<DataTimeProps> = ({
+export const DataTime: React.FC<DataTimeProps> = ({
   title,
   place,
   name,
@@ -96,5 +96,3 @@ const DataTime: React.FC<DataTimeProps> = ({
     </S.Wrapper>
   );
 };
-
-export default DataTime;

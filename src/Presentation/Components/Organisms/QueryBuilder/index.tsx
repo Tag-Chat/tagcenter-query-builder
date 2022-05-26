@@ -16,6 +16,7 @@ import { Button } from "../../Atoms/Button";
 import Select from "../../Atoms/Select";
 
 import * as S from "./style";
+import { DataTime } from "../../Atoms/DataTime";
 
 const QueryBuilder = () => {
   const [data, setData] = useState<any>(queryBuilderData);
@@ -24,24 +25,18 @@ const QueryBuilder = () => {
   const [actionActive, setActionActive] = useState<boolean>();
   const [responseActive, setResponseActive] = useState<boolean>();
   const [dateActive, setDateActive] = useState<boolean>();
-  const [conditionsOptions, setConditionsOptions] = useState({
-    selectCondition: [
-      {
-        value: "e",
-        label: "E",
-      },
-      {
-        value: "ou",
-        label: "OU",
-      },
-    ],
-    itemOption: [
-      {
-        value: "",
-        label: "",
-      },
-    ],
-  });
+  const [multiDateActive, setMulitDateActive] = useState<boolean>();
+  const [actionMoreOptions, setActionMoreOptions] = useState<boolean>(false);
+  const [conditionsOptions, setConditionsOptions] = useState([
+    {
+      value: "e",
+      label: "E",
+    },
+    {
+      value: "ou",
+      label: "OU",
+    },
+  ]);
   const [itemOption, setItemOption] = useState<ValueProps[]>([
     {
       value: "",
@@ -77,103 +72,114 @@ const QueryBuilder = () => {
 
   const watchCondition = watch("condition");
   const watchOperator = watch("operator");
+  const watchOperatorOption = watch("operatorOption");
 
   useEffect(() => {
     let options: ValueProps[] = [];
     let subOptions: ValueProps[] = [];
     let operator: ValueProps[] = [];
 
-    for (let i = 0; i < data?.items.length; i++) {
-      options = [
-        ...options,
-        {
-          value: data?.items[i]?.name,
-          label: data?.items[i]?.name,
-        },
-      ];
-    }
-
-    const response = conditionsOptions;
-    response.itemOption = options;
-
-    setConditionActive(watchCondition);
-
-    const getValueDefault = data?.items.map((item: any) => {
-      if (item.name === conditionActive) {
-        for (let i = 0; i < item?.valueDefault.length; i++) {
-          subOptions = [
-            ...subOptions,
-            {
-              value: item?.valueDefault[i],
-              label: item?.valueDefault[i],
-            },
-          ];
-        }
+    if (data?.items) {
+      //get options condition
+      for (let i = 0; i < data?.items.length; i++) {
+        options = [
+          ...options,
+          {
+            value: data?.items[i]?.name,
+            label: data?.items[i]?.name,
+          },
+        ];
       }
-    });
-    setSubItemOption(subOptions);
+      setItemOption(options);
+      setConditionActive(watchCondition);
 
-    const getAction = data?.items.map((item: QueryBuilderDataProps) => {
-      if (item.name === conditionActive && item.action === true) {
-        setActionActive(true);
-      } else if (item.name === conditionActive && item.action === false) {
-        setActionActive(false);
-      }
-    });
-
-    const getOperator = data?.items.map((item: any) => {
-      if (item.name === conditionActive) {
-        if (item.operator && item.operator.length === 1) {
-          setOperatorActive(true);
-          for (let i = 0; i < item?.operator[0]?.value.length; i++) {
-            operator = [
-              ...operator,
+      const getInputs = data?.items.map((item: QueryBuilderDataProps) => {
+        //get ValueDefault select
+        if (item.name === conditionActive) {
+          for (let i = 0; i < item?.valueDefault.length; i++) {
+            subOptions = [
+              ...subOptions,
               {
-                value: item?.operator[0]?.value[i],
-                label: item?.operator[0]?.value[i],
+                value: item?.valueDefault[i],
+                label: item?.valueDefault[i],
               },
             ];
           }
-          setOperatorOption(operator);
-        } else if (item?.operator && item?.operator.length > 1) {
-          setOperatorActive(true);
-          for (let i = 0; i < item.operator.length; i++) {
-            for (
-              let index = 0;
-              index < item?.operator[i]?.value.length;
-              index++
-            ) {
+          setSubItemOption(subOptions);
+        }
+
+        //get Action select
+        if (item.name === conditionActive && item.action === true) {
+          setActionActive(true);
+        } else if (item.name === conditionActive && item.action === false) {
+          setActionActive(false);
+        }
+
+        //get Operator select
+        if (item.name === conditionActive) {
+          //get values operator
+          if (item?.operator && item.operator.length === 1) {
+            setOperatorActive(true);
+            for (let i = 0; i < item.operator[0].value.length; i++) {
               operator = [
                 ...operator,
                 {
-                  value: item?.operator[i]?.value[index],
-                  label: item?.operator[i]?.value[index],
+                  value: item.operator[0].value[i],
+                  label: item.operator[0].value[i],
                 },
               ];
             }
+            setOperatorOption(operator);
+          } else if (item?.operator && item?.operator.length > 1) {
+            setOperatorActive(true);
+            for (let i = 0; i < item.operator.length; i++) {
+              for (
+                let index = 0;
+                index < item?.operator[i]?.value.length;
+                index++
+              ) {
+                operator = [
+                  ...operator,
+                  {
+                    value: item?.operator[i]?.value[index],
+                    label: item?.operator[i]?.value[index],
+                  },
+                ];
+              }
+            }
+            setOperatorOption(operator);
+          } else if (item?.operator === null) {
+            setOperatorActive(false);
+          } else {
+            setOperatorActive(false);
           }
-          setOperatorOption(operator);
-        } else if (item?.operator === null) {
-          setOperatorActive(false);
 
-          if (item?.typeItemOperator === TypeItemOperatorProps.Data) {
+          // get input data
+          if (
+            item?.operator === null &&
+            item?.typeItemOperator === TypeItemOperatorProps.Data
+          ) {
+            if (watchOperator === "Entre as datas") {
+              setMulitDateActive(true);
+            } else {
+              setMulitDateActive(false);
+            }
             setDateActive(true);
+          } else {
+            setDateActive(false);
           }
-        } else {
-          setOperatorActive(false);
-        }
-      }
-    });
 
-    const getResponseCondition = data?.items?.map((item: any) => {
-      if (item.response !== null && item?.name === conditionActive) {
-        setResponseOption(item.response);
-        setResponseActive(true);
-      } else if (item.response === null && item?.name === conditionActive) {
-        setResponseActive(false);
-      }
-    });
-  }, [watchCondition, conditionActive]);
+          //getResponseCondition
+          if (item.response !== null && item?.name === conditionActive) {
+            setResponseOption(item.response);
+            setResponseActive(true);
+          } else if (item.response === null && item?.name === conditionActive) {
+            setResponseActive(false);
+          }
+        }
+      });
+    }
+  }, [watchCondition, conditionActive, watchOperator]);
 
   return (
     <S.Container>
@@ -184,7 +190,7 @@ const QueryBuilder = () => {
             <Select
               name="allcondition"
               register={register}
-              options={conditionsOptions.selectCondition}
+              options={conditionsOptions}
             />
           </S.SelectCondition>
         </S.HeaderGroupBlock>
@@ -194,7 +200,7 @@ const QueryBuilder = () => {
               <Select
                 name="condition"
                 register={register}
-                options={conditionsOptions.itemOption}
+                options={itemOption}
               />
             </S.SelectContent>
             {watchCondition && (
@@ -227,21 +233,40 @@ const QueryBuilder = () => {
                 )}
                 {watchOperator && dateActive && (
                   <>
-                    <h1>tem campo data</h1>
+                    <S.SelectContent>
+                      <DataTime
+                        name={"startData"}
+                        title={`${multiDateActive ? "Inicial" : "Data"}`}
+                      />
+                    </S.SelectContent>
+                    {multiDateActive && (
+                      <S.SelectContent>
+                        <DataTime name={"finishData"} title={"Final"} />
+                      </S.SelectContent>
+                    )}
                   </>
                 )}
               </>
             )}
           </S.ContentContainer>
-          <S.ContentContainer>
+          <S.ContentContainerAction>
             {actionActive && (
-              <S.GroupAction>
-                <Button maxWidth={"150px"} sizeButton={"sm"}>
-                  Adicionar ações
-                </Button>
-              </S.GroupAction>
+              <>
+                {actionMoreOptions && (
+                  <S.ActionMoreOptions>teste</S.ActionMoreOptions>
+                )}
+                <S.GroupAction>
+                  <Button
+                    maxWidth={"150px"}
+                    sizeButton={"sm"}
+                    onClick={() => setActionMoreOptions(!actionMoreOptions)}
+                  >
+                    Adicionar ações
+                  </Button>
+                </S.GroupAction>
+              </>
             )}
-          </S.ContentContainer>
+          </S.ContentContainerAction>
         </S.ContentCondition>
 
         <S.GroupAction>

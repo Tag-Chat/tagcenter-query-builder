@@ -78,7 +78,7 @@ export const GroupAction = styled.div`
   justify-content: flex-start;
   align-items: center;
 
-  margin: 10px;
+  margin: 0.5rem;
 `;
 
 export const ContentContainer = styled.div`
@@ -98,4 +98,19 @@ export const InputContainer = styled.div`
   input {
     height: 47px;
   }
+`;
+
+export const ContentContainerAction = styled.div`
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ActionMoreOptions = styled.div`
+  width: 100%;
+  height: 47px;
+  margin: 0 0.5rem 0.5rem 0;
+
+  padding: 0.5rem;
 `;
