@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 
+import { useCore } from "../../../Hooks/Context";
 import { useForm } from "react-hook-form";
 import { queryBuilderData } from "../../../../Data";
 import {
   QueryBuilderDataProps,
-  TypeQueryBuilderDataProps,
-  ResponsesProps,
-  OperatorProps,
   ValueProps,
   TypeItemOperatorProps,
-  MoreActionProps,
+  TypeQueryBuilderDataProps,
 } from "../../../../Validation/Protocols/TypeQueryBuilderDataProps";
 
 import { Input } from "../../Atoms/Input";
@@ -18,9 +16,26 @@ import Select from "../../Atoms/Select";
 
 import * as S from "./style";
 import { DataTime } from "../../Atoms/DataTime";
+import { HeaderQueryBuilder } from "../../Molecules/Headers";
+import {
+  GetOptionsCondition,
+  GetValueDefaultSelect,
+} from "../../../../Validation/Rules/";
 
 const QueryBuilder = () => {
   const [data, setData] = useState<any>(queryBuilderData);
+  const {
+    itemOption,
+    setItemOption,
+    subItemOption,
+    setSubItemOption,
+    operatorOption,
+    setOperatorOption,
+    responseOption,
+    setResponseOption,
+    moreActionOption,
+    setMoreActionOption,
+  } = useCore();
   const [conditionActive, setConditionActive] = useState();
   const [operatorActive, setOperatorActive] = useState<boolean>(false);
   const [actionActive, setActionActive] = useState<boolean>(false);
@@ -28,49 +43,6 @@ const QueryBuilder = () => {
   const [dateActive, setDateActive] = useState<boolean>(false);
   const [multiDateActive, setMulitDateActive] = useState<boolean>(false);
   const [actionMoreOptions, setActionMoreOptions] = useState<boolean>(false);
-  const [conditionsOptions, setConditionsOptions] = useState([
-    {
-      value: "e",
-      label: "E",
-    },
-    {
-      value: "ou",
-      label: "OU",
-    },
-  ]);
-  const [itemOption, setItemOption] = useState<ValueProps[]>([
-    {
-      value: "",
-      label: "",
-    },
-  ]);
-
-  const [subItemOption, setSubItemOption] = useState<ValueProps[]>([
-    {
-      value: "",
-      label: "",
-    },
-  ]);
-
-  const [operatorOption, setOperatorOption] = useState<ValueProps[]>([
-    {
-      value: "",
-      label: "",
-    },
-  ]);
-
-  const [responseOption, setResponseOption] = useState<ResponsesProps>({
-    type: "",
-    label: "",
-  });
-
-  const [moreActionOption, setMoreActionOption] = useState([
-    {
-      label: "",
-      input: "",
-      value: "",
-    },
-  ]);
 
   const {
     control,
@@ -84,40 +56,22 @@ const QueryBuilder = () => {
   const watchOperatorOption = watch("operatorOption");
 
   useEffect(() => {
-    let options: ValueProps[] = [];
-    let subOptions: ValueProps[] = [];
     let operator: ValueProps[] = [];
-    let moreAction: any = [];
+    let moreAction: ValueProps[] = [];
 
     if (data?.items) {
       //get options condition
-      for (let i = 0; i < data?.items.length; i++) {
-        options = [
-          ...options,
-          {
-            value: data?.items[i]?.name,
-            label: data?.items[i]?.name,
-          },
-        ];
-      }
-      setItemOption(options);
+      setItemOption(GetOptionsCondition({ data }));
+
+      //active Condition
       setConditionActive(watchCondition);
 
-      const getInputs = data?.items.map((item: QueryBuilderDataProps) => {
-        //get ValueDefault select
-        if (item.name === conditionActive) {
-          for (let i = 0; i < item?.valueDefault.length; i++) {
-            subOptions = [
-              ...subOptions,
-              {
-                value: item?.valueDefault[i],
-                label: item?.valueDefault[i],
-              },
-            ];
-          }
-          setSubItemOption(subOptions);
-        }
+      //get ValueDefault select
+      setSubItemOption(GetValueDefaultSelect({ data, conditionActive }));
 
+      //get Action select
+
+      const getInputs = data?.items.map((item: QueryBuilderDataProps) => {
         //get Action select
         if (item.name === conditionActive && item.action === true) {
           setActionActive(true);
@@ -189,18 +143,16 @@ const QueryBuilder = () => {
         }
 
         //get custom Input
-        if (item?.customInput !== null) {
-          for (let i = 0; i < item?.customInput?.length; i++) {
+        if (item?.customInput !== null && actionActive) {
+          for (let i = 0; i < item?.customInput.length; i++) {
             moreAction = [
               ...moreAction,
               {
-                value: item?.customInput[i].value,
-                label: item?.customInput[i].label,
-                input: item?.customInput[i].input,
+                value: item?.customInput[i],
+                label: item?.customInput[i],
               },
             ];
           }
-          setMoreActionOption(moreAction);
         }
       });
     }
@@ -209,16 +161,7 @@ const QueryBuilder = () => {
   return (
     <S.Container>
       <S.GroupBlock>
-        <S.HeaderGroupBlock>
-          <S.TitleHeader>Grupo 1 Quero Leads que atendam</S.TitleHeader>
-          <S.SelectCondition>
-            <Select
-              name="allcondition"
-              register={register}
-              options={conditionsOptions}
-            />
-          </S.SelectCondition>
-        </S.HeaderGroupBlock>
+        <HeaderQueryBuilder title={"Grupo 1 Quero Leads que atendam"} />
         <S.ContentCondition>
           <S.ContentContainer>
             <S.SelectContent>

@@ -301,39 +301,15 @@
       "type": "select",
       "valueDefault": ["O Lead possui venda", "O Lead não possui venda"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -348,39 +324,15 @@
       ],
       "typeItemOperator": "select",
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -415,39 +367,15 @@
       "type": "select",
       "valueDefault": ["qualquer página"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -456,39 +384,15 @@
       "type": "select",
       "valueDefault": ["qualquer página"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -497,39 +401,15 @@
       "type": "select",
       "valueDefault": ["qualquer página"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -538,39 +418,15 @@
       "type": "select",
       "valueDefault": ["qualquer página"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -579,39 +435,15 @@
       "type": "select",
       "valueDefault": ["qualquer página"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -620,39 +452,15 @@
       "type": "select",
       "valueDefault": ["qualquer página"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -661,39 +469,15 @@
       "type": "select",
       "valueDefault": ["qualquer página"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -702,39 +486,15 @@
       "type": "select",
       "valueDefault": ["qualquer página"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -743,39 +503,15 @@
       "type": "select",
       "valueDefault": ["qualquer página"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -784,39 +520,15 @@
       "type": "select",
       "valueDefault": ["qualquer página"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -825,39 +537,15 @@
       "type": "select",
       "valueDefault": ["qualquer página"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -866,39 +554,15 @@
       "type": "select",
       "valueDefault": ["qualquer página"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -907,39 +571,15 @@
       "type": "select",
       "valueDefault": ["qualquer página"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -948,39 +588,15 @@
       "type": "select",
       "valueDefault": ["qualquer página"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -989,39 +605,15 @@
       "type": "select",
       "valueDefault": ["qualquer página"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -1030,39 +622,15 @@
       "type": "select",
       "valueDefault": ["qualquer página"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -1071,39 +639,15 @@
       "type": "select",
       "valueDefault": ["qualquer página"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
@@ -1112,55 +656,32 @@
       "type": "select",
       "valueDefault": ["qualquer página"],
       "customInput": [
-        {
-          "label": "em qualquer data",
-          "input": "",
-          "value": null
-        },
-        {
-          "label": "no dia",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "entre as datas",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "antes ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "despois ou igual",
-          "input": "Data",
-          "value": null
-        },
-        {
-          "label": "nos últimos",
-          "input": ["Select", "Select Number"],
-          "value": [
-            { "input": "Select", "values": ["Dias", "Semanas", "Messes"] }
-          ]
-        }
+        "em qualquer data",
+        "no dia",
+        "entre as datas",
+        "antes ou igual",
+        "despois ou igual",
+        "nos últimos"
       ],
+      "customInputType": "data",
+      "subValues": ["Dias", "Semanas", "Messes"],
       "response": null
     },
     {
       "name": "Envio de comunicação",
-      "action": true,
+      "action": false,
       "type": "select",
       "valueDefault": [
         "O Lead possui base legal para comunicação",
         "O Lead não possui base legal para comunicação",
         "Sem informações"
       ],
+      "customInput": null,
       "response": null
     },
     {
       "name": "CRM",
-      "action": true,
+      "action": false,
       "type": "select",
       "valueDefault": [
         "Oportunidade criada",
@@ -1170,11 +691,12 @@
         "Tarefa Criada",
         "Tarefa Atualizada"
       ],
+      "customInput": null,
       "response": null
     },
     {
       "name": "E-Commerce",
-      "action": true,
+      "action": false,
       "type": "select",
       "valueDefault": [
         "Carrinho abandonado",
@@ -1182,19 +704,22 @@
         "Pedido realizado",
         "Pedido realizado - item"
       ],
+      "customInput": null,
       "response": null
     },
     {
       "name": "Chat",
-      "action": true,
+      "action": false,
       "type": "select",
       "valueDefault": ["Chat finalizado", "Chat iniciado"],
+      "customInput": null,
       "response": null
     },
     {
       "name": "Mídia",
-      "action": true,
+      "action": false,
       "type": "select",
+      "customInput": null,
       "valueDefault": [
         "Reprodução de mídia iniciada",
         "Reprodução de mídia finalizada"

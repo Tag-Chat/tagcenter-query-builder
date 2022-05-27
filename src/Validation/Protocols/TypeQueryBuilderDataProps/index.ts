@@ -1,3 +1,12 @@
+export interface HeaderQueryBuilderProps {
+  title: string;
+}
+
+export interface SelectProps {
+  label: string;
+  value: string;
+}
+
 export interface ResponsesProps {
   label: string;
   type: string;
@@ -24,9 +33,9 @@ export interface OperatorProps {
 }
 
 export interface MoreActionProps {
-  label: string;
-  input: string | string[];
-  value: { input: string; values: string[] | string } | null;
+  values: string[];
+  type: string;
+  subValues: string[];
 }
 
 export enum TypeItemOperatorProps {
@@ -41,12 +50,14 @@ export interface QueryBuilderDataProps {
   valueDefault: string[];
   operator: OperatorProps[];
   typeItemOperator: string;
-  customInput: MoreActionProps[] | null;
+  customInput: string[] | null;
+  customInputType: string;
+  subValues?: string[];
   customItems: CustomItemsProps[];
   response: null | ResponsesProps;
   typeCustomItems: string;
 }
 
 export interface TypeQueryBuilderDataProps {
-  items?: QueryBuilderDataProps[];
+  items: QueryBuilderDataProps[];
 }
