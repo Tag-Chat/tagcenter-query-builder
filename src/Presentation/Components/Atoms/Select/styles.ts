@@ -7,29 +7,8 @@ interface ContainerProps {
   usePadding: boolean;
   withPaddingAdjustments?: boolean;
 }
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.div`
   width: 100%;
-  ${({ withPaddingAdjustments }) =>
-    withPaddingAdjustments &&
-    css`
-      height: 80px;
-    `}
-  position: relative;
-
-  ${(props) =>
-    props.usePadding &&
-    `
-			padding-bottom: ${props.hasError ? ".2rem" : "1rem"};
-	`}
-
-  label {
-    padding-left: 10px;
-    color: ${(props) => props.theme.textSecondary} !important;
-    pointer-events: none;
-    font-size: 14px !important;
-    font-weight: 600;
-    top: 18px;
-  }
 
   select {
     box-sizing: border-box;
@@ -55,16 +34,10 @@ export const Container = styled.div<ContainerProps>`
 
     background-color: ${(props) =>
       props.theme.name === "Dark" ? "#00000050" : "#FEFEFE"} !important;
-    padding: ${(props) =>
-      props.withIcon ? "12px 14px 0 36px" : "14px 14px 14px 7px"};
+    padding: 14px 14px 14px 7px;
     color: ${(props) => props.theme.textPrimary};
     border-radius: 0.188rem;
     font-size: 0.95rem;
-    ${({ withPaddingAdjustments }) =>
-      withPaddingAdjustments &&
-      css`
-        padding-top: 36px;
-      `}
     option {
       background: ${(props) =>
         props.theme.name === "Dark"
@@ -72,8 +45,7 @@ export const Container = styled.div<ContainerProps>`
           : darken("0.1", "#ffffff")};
     }
 
-    border: 1px solid
-      ${(props) => (props.hasError ? `${props.theme.errorRed}` : "transparent")};
+    border: 1px solid transparent;
 
     &:focus-within {
       border: ${(props) => `solid 1px  ${props.theme.primary300}`};
@@ -98,56 +70,9 @@ export const Container = styled.div<ContainerProps>`
     }
   }
 
-  svg {
-    position: absolute;
-    top: 18px;
-    left: 10px;
-    width: 20px;
-    color: ${(props) => props.theme.textSecondary};
-  }
-
   &:focus {
     svg {
       color: ${(props) => props.theme.primary300};
     }
-  }
-`;
-
-interface TooltipInfoProps {
-  active?: boolean;
-}
-
-export const TooltipInfo = styled.span<TooltipInfoProps>`
-  width: 100%;
-  height: auto;
-  padding: 0.5rem;
-
-  background: ${(props) => props.theme.backgroundBody};
-  border: 1px solid ${(props) => props.theme.primary300};
-  border-radius: 0.5rem;
-
-  font-size: 0.9rem;
-
-  position: absolute;
-
-  right: 0%;
-  top: -50px;
-
-  visibility: ${(props) => (props.active ? "visible" : "none")};
-  opacity: ${(props) => (props.active ? "1" : "0")};
-  z-index: ${(props) => (props.active ? "10" : "0")};
-  transition: all 0.3s ease-in-out;
-
-  &::before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 0px;
-    left: 50%;
-    bottom: 5px;
-    border: 10px solid transparent;
-    border-bottom: 0;
-    border-top: 10px solid ${(props) => props.theme.primary300};
-    transform: translate(-50%, calc(100% + 5px));
   }
 `;

@@ -1,10 +1,54 @@
-export interface HeaderQueryBuilderProps {
-  title: string;
-}
+import { Control, FieldValues, UseFormRegister } from "react-hook-form";
 
 export interface SelectProps {
   label: string;
   value: string;
+}
+
+export interface ConditionActive {
+  name: string;
+  label: string;
+}
+
+export interface SelectComponentProps {
+  id: string;
+  name: string;
+  onChange?: (e: any) => void;
+  onClick?: (e: any) => void;
+  options: SelectProps[];
+  value?: string;
+}
+
+export interface WrapperConditionProps {
+  id: string;
+  idComponent: number;
+  register: UseFormRegister<FieldValues>;
+  itemOption: SelectProps[];
+  watchCondition: string;
+  subItemOption: SelectProps[];
+  watchOperator: string;
+  operatorActive: boolean;
+  responseActive: boolean;
+  dateActive: boolean;
+  actionActive: boolean;
+  actionMoreOptions: boolean;
+  multiDateActive: boolean;
+  moreActionOption: SelectProps[];
+  operatorOption: SelectProps[];
+  responseOption: ResponsesProps;
+  control: Control<FieldValues, any>;
+  addGroup: () => void;
+  addAction: () => void;
+  deleteGroup: () => void;
+}
+
+export interface GroupProps {
+  component: string;
+  id: number;
+}
+
+export interface HeaderQueryBuilderProps {
+  title: string;
 }
 
 export interface ResponsesProps {
@@ -50,7 +94,7 @@ export interface QueryBuilderDataProps {
   valueDefault: string[];
   operator: OperatorProps[];
   typeItemOperator: string;
-  customInput: string[] | null;
+  customInput: string[];
   customInputType: string;
   subValues?: string[];
   customItems: CustomItemsProps[];

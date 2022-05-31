@@ -1,18 +1,15 @@
 import { GetOptionsConditionProps } from "../../Protocols/TypeGetOptionsConditionProps";
-import { useCore } from "../../../Presentation/Hooks/Context";
 import { ValueProps } from "../../Protocols/TypeQueryBuilderDataProps";
 
-export function GetValuesOperator({
+export function GetOperatorSelect({
   data,
   conditionActive,
 }: GetOptionsConditionProps) {
-  const { setOperatorActive } = useCore();
   let operator: ValueProps[] = [];
 
   data?.items.map((item) => {
-    if (item.name === conditionActive) {
+    if (item.name === conditionActive?.name) {
       if (item?.operator && item.operator.length === 1) {
-        setOperatorActive(true);
         for (let i = 0; i < item.operator[0].value.length; i++) {
           operator.push({
             value: item.operator[0].value[i],
@@ -20,7 +17,6 @@ export function GetValuesOperator({
           });
         }
       } else if (item?.operator && item?.operator.length > 1) {
-        setOperatorActive(true);
         for (let i = 0; i < item.operator.length; i++) {
           for (
             let index = 0;
@@ -33,13 +29,8 @@ export function GetValuesOperator({
             });
           }
         }
-      } else if (item?.operator === null) {
-        setOperatorActive(false);
-      } else {
-        setOperatorActive(false);
       }
     }
   });
-
   return operator;
 }

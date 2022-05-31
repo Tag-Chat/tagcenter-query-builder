@@ -1,79 +1,25 @@
-import { InputHTMLAttributes, ReactNode } from "react";
+import React from "react";
+import { SelectComponentProps } from "../../../../Validation/Protocols/TypeQueryBuilderDataProps";
 
-//libs
-import { RegisterOptions, UseFormRegister, FieldValues } from "react-hook-form";
+import * as S from "./styles";
 
-//styles
-import { Container } from "./styles";
-
-//components
-import Label from "../Label";
-import Error from "../Error";
-
-interface SelectProps extends InputHTMLAttributes<HTMLSelectElement> {
-  name: string;
-  label?: string;
-  validation?: RegisterOptions;
-  register: UseFormRegister<FieldValues>;
-  error?: string;
-  icon?: ReactNode;
-  emptyValueName?: string;
-  options: {
-    value: any;
-    label: string;
-  }[];
-  usePadding?: boolean;
-  withPaddingAdjustments?: boolean;
-  isTooltip?: boolean;
-  tooltip?: string;
-}
-
-const Select: React.FC<SelectProps> = ({
-  label,
+const Select = ({
+  id,
   name,
-  validation,
-  register,
-  error,
-  icon,
-  emptyValueName,
+  onChange,
   options,
-  withPaddingAdjustments,
-  usePadding = true,
-
-  ...rest
-}) => {
+  value,
+  onClick,
+}: SelectComponentProps) => {
   return (
-    <>
-      <Container
-        usePadding={usePadding}
-        hasError={!!error}
-        withIcon={!!icon}
-        withPaddingAdjustments={withPaddingAdjustments}
-      >
-        <select
-          {...rest}
-          id={name}
-          placeholder=" "
-          {...register(name, {
-            ...validation,
-          })}
-        >
-          <option value="">{emptyValueName ?? `Selecione`}</option>
-          {options &&
-            options.map((option, index) => (
-              <option key={`${option.value}+${index}`} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-        </select>
-
-        {label && <Label name={name} withIcon={!!icon} label={label} />}
-
-        {icon && icon}
-      </Container>
-
-      {error && <Error error={error} />}
-    </>
+    <S.Container>
+      <select id={id} name={name} onChange={onChange} onClick={onClick}>
+        <option value="Selecione">Selecione</option>
+        {options.map((item: any) => (
+          <option value={item.value}>{item.label}</option>
+        ))}
+      </select>
+    </S.Container>
   );
 };
 

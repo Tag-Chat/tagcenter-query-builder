@@ -1,7 +1,10 @@
-import { TypeQueryBuilderDataProps } from "../TypeQueryBuilderDataProps";
+import {
+  TypeQueryBuilderDataProps,
+  ConditionActive,
+} from "../TypeQueryBuilderDataProps";
 
 export interface GetOptionsConditionProps {
   data: TypeQueryBuilderDataProps;
-  conditionActive?: string;
+  conditionActive?: ConditionActive;
   watchOperator?: string;
 }

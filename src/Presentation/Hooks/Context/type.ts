@@ -1,6 +1,8 @@
+import { SelectProps } from "./../../../Validation/Protocols/TypeQueryBuilderDataProps/index";
 import {
   ValueProps,
   ResponsesProps,
+  GroupProps,
 } from "../../../Validation/Protocols/TypeQueryBuilderDataProps";
 
 export interface CoreContextProps {
@@ -12,7 +14,7 @@ export interface CoreContextProps {
   subItemOption: ValueProps[];
   setSubItemOption: React.Dispatch<React.SetStateAction<ValueProps[]>>;
   operatorOption: ValueProps[];
-  setOperatorOption: React.Dispatch<React.SetStateAction<any>>;
+  setOperatorOption: React.Dispatch<React.SetStateAction<ValueProps[]>>;
   responseOption: ResponsesProps;
   setResponseOption: React.Dispatch<React.SetStateAction<ResponsesProps>>;
   moreActionOption: ValueProps[];
@@ -23,4 +25,11 @@ export interface CoreContextProps {
   setMulitDateActive: React.Dispatch<React.SetStateAction<boolean>>;
   dateActive: boolean;
   setDateActive: React.Dispatch<React.SetStateAction<boolean>>;
+  setConditions: React.Dispatch<React.SetStateAction<GroupProps[]>>;
+  conditions: GroupProps[];
+  conditionsOptions: SelectProps[];
+  allCondition: string;
+  setAllCondition: React.Dispatch<React.SetStateAction<string>>;
+  query: string;
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
 }

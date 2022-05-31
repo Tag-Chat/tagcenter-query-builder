@@ -22,14 +22,12 @@
       "operator": [
         {
           "value": [
-            "no dia",
-            "entre as datas",
-            "antes ou igual a",
-            "despois ou igual a",
-            "nos últimos",
-            "mais do que",
-            "menos do que",
-            "exatamente"
+            "contém",
+            "não contém",
+            "é igual a",
+            "não é igual a",
+            "está preenchido",
+            "não está preenchido"
           ]
         }
       ],

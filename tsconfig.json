@@ -16,32 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "strictNullChecks": true,
-    "compilerOptions": {
-      "baseUrl": "./",
-      "paths": {
-        "@/*": [
-          "./src/*"
-        ],
-        "@Data/*": [
-          "./src/Data/*"
-        ],
-        "@Domain/*": [
-          "./src/Domain/*"
-        ],
-        "@Infra/*": [
-          "./src/Infra/*"
-        ],
-        "@Main/*": [
-          "./src/Main/*"
-        ],
-        "@Presentation/*": [
-          "./src/Presentation/*"
-        ],
-        "@Validation/*": [
-          "./src/Validation/*"
-        ]
-      }
-    },
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

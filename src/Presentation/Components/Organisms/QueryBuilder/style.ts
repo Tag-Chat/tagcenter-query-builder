@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { pxToRem } from "../../../Styles/global";
 
+import { RemoveCircleOutline } from "@styled-icons/material/";
+
 export const Container = styled.div`
-  width: 100vw;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -57,9 +59,6 @@ export const ContentCondition = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-
-  background: ${(props) => props.theme.backgroundCard};
-  border: ${pxToRem(1)} solid ${(props) => props.theme.borderLine};
 `;
 
 export const SelectContent = styled.div`
@@ -126,4 +125,51 @@ export const TesteAction = styled.div`
   align-items: center;
 
   padding-left: 0.5rem;
+`;
+
+export const WrapperGroup = styled.div`
+  width: 100%;
+  border: ${pxToRem(1)} solid ${(props) => props.theme.primary300};
+
+  border-radius: ${pxToRem(4)};
+  padding: ${pxToRem(16)};
+
+  margin: ${pxToRem(8)};
+
+  position: relative;
+`;
+
+export const IconDelete = styled(RemoveCircleOutline)`
+  color: ${(props) => props.theme.red};
+
+  width: 21px;
+  height: 21px;
+
+  &:hover {
+    color: ${(props) => props.theme.textPrimary};
+  }
+`;
+
+interface ActionDeleteProps {
+  visible?: boolean;
+}
+export const ActionDelete = styled.div<ActionDeleteProps>`
+  position: absolute;
+
+  background: ${(props) => props.theme.backgroundCard2};
+  border: ${pxToRem(1)} solid ${(props) => props.theme.primary300};
+
+  display: ${(props) => (props?.visible === true ? "flex" : "none")};
+  justify-content: center;
+  align-items: center;
+
+  width: 25px;
+  height: 25px;
+
+  border-radius: 8px;
+
+  top: -5px;
+  right: -5px;
+
+  cursor: pointer;
 `;

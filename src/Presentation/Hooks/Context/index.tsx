@@ -3,7 +3,9 @@ import * as Themes from "../../Styles/Themes";
 import { ThemeProvider as StyledProvider } from "styled-components";
 import { setCookie, parseCookies } from "nookies";
 import {
+  GroupProps,
   ResponsesProps,
+  SelectProps,
   ValueProps,
 } from "../../../Validation/Protocols/TypeQueryBuilderDataProps";
 import { CoreContextProps } from "./type";
@@ -18,6 +20,7 @@ const CoreProvider: React.FC<ReactProps> = (props) => {
   //theme
   const [theme, setTheme] = useState<any>(Themes.Dark);
   const [isDark, setIsDark] = useState<any>(theme === Themes.Dark);
+  const [conditions, setConditions] = useState<GroupProps[]>([]);
 
   //Theme
   const toggleTheme = () => {
@@ -74,6 +77,21 @@ const CoreProvider: React.FC<ReactProps> = (props) => {
   const [multiDateActive, setMulitDateActive] = useState<boolean>(false);
   const [dateActive, setDateActive] = useState<boolean>(false);
 
+  const [conditionsOptions, setConditionsOptions] = useState<SelectProps[]>([
+    {
+      value: "e",
+      label: "E",
+    },
+    {
+      value: "ou",
+      label: "OU",
+    },
+  ]);
+
+  const [allCondition, setAllCondition] = useState<string>("");
+
+  const [query, setQuery] = useState("");
+
   useEffect(() => {
     const { "@TagChat.Theme": cookieTheme } = parseCookies();
 
@@ -106,6 +124,13 @@ const CoreProvider: React.FC<ReactProps> = (props) => {
         setMulitDateActive,
         dateActive,
         setDateActive,
+        conditions,
+        setConditions,
+        conditionsOptions,
+        allCondition,
+        setAllCondition,
+        query,
+        setQuery,
       }}
       {...props}
     >

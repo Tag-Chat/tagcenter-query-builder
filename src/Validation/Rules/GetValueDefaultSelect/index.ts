@@ -8,7 +8,7 @@ export function GetValueDefaultSelect({
   let subOptions: ValueProps[] = [];
 
   data?.items.map((item) => {
-    if (item?.name === conditionActive) {
+    if (item?.name === conditionActive?.name) {
       for (let i = 0; i < item?.valueDefault?.length; i++) {
         subOptions = [
           ...subOptions,
