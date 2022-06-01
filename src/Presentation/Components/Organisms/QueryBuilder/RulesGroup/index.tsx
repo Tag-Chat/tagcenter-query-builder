@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useCore } from "../../../../Hooks/Context";
 import { queryBuilderData } from "../../../../../Data";
 
@@ -9,6 +9,7 @@ import {
   WrapperConditionProps,
   ConditionActive,
   SelectProps,
+  ResponsesProps,
 } from "../../../../../Validation/Protocols/TypeQueryBuilderDataProps";
 
 import {
@@ -16,6 +17,7 @@ import {
   GetOperatorSelect,
   GetOptionsCondition,
   GetValueDefaultSelect,
+  GetResponseInput,
 } from "../../../../../Validation/Rules";
 
 import Select from "../../../Atoms/Select";
@@ -24,11 +26,12 @@ import { Button } from "../../../Atoms/Button";
 import * as S from "./style";
 
 interface teste {
-  rule: number;
-  condition: string[] | string;
-  operator: string[] | string;
-  operatorItem: string[] | string;
-  combiner: null | string[] | string;
+  rule?: number;
+  condition?: string[] | string;
+  operator?: string[] | string;
+  operatorItem?: string[] | string;
+  combiner?: null | string[] | string;
+  response: null | ResponsesProps;
 }
 
 const RulesGroup = () => {
@@ -51,9 +54,11 @@ const RulesGroup = () => {
     setQuery,
     query,
   } = useCore();
+
   const [infoConditions, setInfoConditions] = useState<any>([
     { conditionName: "", values: [], operator: [], combiner: [] },
   ]);
+
   const [inputFields, setInputFields] = useState<teste[]>([
     {
       rule: countRules,
@@ -61,10 +66,33 @@ const RulesGroup = () => {
       operator: "",
       operatorItem: "",
       combiner: null,
+      response: null,
     },
   ]);
-  const [groupRules, setGroupRules] = useState([{ groups: [...inputFields] }]);
+
+  const [groupRules, setGroupRules] = useState([
+    {
+      id: 0,
+      rules: [
+        {
+          groupId: 0,
+          rule: countRules,
+          condition: "",
+          operator: "",
+          operatorItem: "",
+          combiner: null,
+          response: null,
+        },
+      ],
+    },
+  ]);
+
   const [conditionActive, setConditionActive] = useState<ConditionActive>({
+    name: "",
+    label: "",
+  });
+
+  const [operatorActive, setOperatorActive] = useState<ConditionActive>({
     name: "",
     label: "",
   });
@@ -84,6 +112,7 @@ const RulesGroup = () => {
       operator: "",
       operatorItem: "",
       combiner: "",
+      response: null,
     });
     setInputFields(values);
   };
@@ -122,6 +151,12 @@ const RulesGroup = () => {
         break;
       case `operator-${index}`:
         values[index].operator = event.target.value;
+
+        setOperatorActive({
+          name: event.target.value,
+          label: event.target.value,
+        });
+
         conditionInfo[index].values = [...subItemOption];
         break;
       case `operatorItem-${index}`:
@@ -135,8 +170,6 @@ const RulesGroup = () => {
     }
     setInfoConditions(conditionInfo);
     setInputFields(values);
-
-    console.log("conditionInfo", conditionInfo);
     setQuery(JSON.stringify(inputFields, null, 2));
   };
 
@@ -149,6 +182,7 @@ const RulesGroup = () => {
         operator: "",
         operatorItem: "",
         combiner: null,
+        response: null,
       },
     ]);
   };
@@ -160,6 +194,8 @@ const RulesGroup = () => {
     setSubItemOption(GetValueDefaultSelect({ data, conditionActive }));
     // get operator
     setOperatorOption(GetOperatorSelect({ data, conditionActive }));
+
+    setResponseOption(GetResponseInput({ data, conditionActive }));
   }, [conditionActive]);
 
   return (
@@ -192,31 +228,40 @@ const RulesGroup = () => {
                   options={itemOption}
                 />
               </S.RuleItem>
-              <S.RuleItem>
-                <Select
-                  id={`operator-${index}`}
-                  name={`operator-${index}`}
-                  onChange={(event) => handleInputChange(index, event)}
-                  options={
-                    infoConditions[index]?.values.length > 1
-                      ? infoConditions[index]?.values
-                      : subItemOption
-                  }
-                />
-              </S.RuleItem>
-              <S.RuleItem>
-                <Select
-                  id={`operatorItem-${index}`}
-                  name={`operatorItem-${index}`}
-                  onChange={(event) => handleInputChange(index, event)}
-                  options={
-                    infoConditions[index]?.values.length > 1
-                      ? infoConditions[index]?.operator
-                      : operatorOption
-                  }
-                  onClick={(event) => handleInputChange(index, event)}
-                />
-              </S.RuleItem>
+              {conditionActive.name && (
+                <S.RuleItem>
+                  <Select
+                    id={`operator-${index}`}
+                    name={`operator-${index}`}
+                    onChange={(event) => handleInputChange(index, event)}
+                    options={
+                      infoConditions[index]?.values.length > 1
+                        ? infoConditions[index]?.values
+                        : subItemOption
+                    }
+                    onClick={(event) => handleInputChange(index, event)}
+                  />
+                </S.RuleItem>
+              )}
+              {operatorActive.name && (
+                <S.RuleItem>
+                  <Select
+                    id={`operatorItem-${index}`}
+                    name={`operatorItem-${index}`}
+                    onChange={(event) => handleInputChange(index, event)}
+                    options={
+                      infoConditions[index]?.operator.length > 1
+                        ? infoConditions[index]?.operator
+                        : operatorOption
+                    }
+                    onClick={(event) =>
+                      infoConditions[index]?.operator.length > 1 &&
+                      handleInputChange(index, event)
+                    }
+                  />
+                </S.RuleItem>
+              )}
+              {operatorActive.name && responseOption && <>tem resposta</>}
               <S.ActionRule>
                 <S.ButtonAction
                   type="button"
@@ -231,26 +276,24 @@ const RulesGroup = () => {
           </S.Rule>
         </>
       ))}
-      <div>
+      <div style={{ marginLeft: "1rem" }}>
         <Button
           type="button"
           onClick={() => (handleAddFields(), setCountRules(countRules + 1))}
           sizeButton="sm"
+          maxWidth="200px"
         >
           Criar outra condição
         </Button>
       </div>
       {/**
-        *  <div className="submit-button">
-          <button
-            className="btn btn-secondary mr-2"
-            type="reset"
-            onClick={resetForm}
-          >
-            Reset Form
-          </button>
-        </div>
+        *  <div>
+        <Button type="reset" onClick={resetForm} sizeButton="sm">
+          limpar query builder
+        </Button>
+      </div>
         */}
+      <pre>{query}</pre>
     </S.Container>
   );
 };

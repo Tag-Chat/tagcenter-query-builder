@@ -9,7 +9,7 @@ export function GetCustomInput({
   let moreAction: ValueProps[] = [];
 
   data?.items.map((item) => {
-    if (item?.name === conditionActive) {
+    if (item?.name === conditionActive?.name) {
       for (let i = 0; i < item?.customInput?.length; i++) {
         moreAction.push({
           value: item?.customInput[i],

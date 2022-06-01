@@ -14,7 +14,7 @@ export const Container = styled.div`
   padding: 1rem;
 `;
 
-export const Rule = styled.div`
+export const Rule = styled.form`
   width: 100%;
   border: ${pxToRem(1)} solid ${(props) => props.theme.primary300};
 

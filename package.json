@@ -23,7 +23,6 @@
     "react-input-mask": "^2.0.4",
     "react-loader-spinner": "^6.0.0-0",
     "react-router-dom": "^6.3.0",
-    "reactstrap": "^9.0.2",
     "styled-components": "^5.3.5",
     "styled-icons": "^10.45.0"
   },

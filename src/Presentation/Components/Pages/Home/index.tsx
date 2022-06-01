@@ -9,7 +9,6 @@ const HomePage = () => {
   return (
     <>
       <QueryBuilder />
-      <pre>{query}</pre>
     </>
   );
 };
