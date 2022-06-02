@@ -7,6 +7,8 @@ import {
   ResponsesProps,
   SelectProps,
   ValueProps,
+  RuleGroupsProps,
+  GroupProp,
 } from "../../../Validation/Protocols/TypeQueryBuilderDataProps";
 import { CoreContextProps } from "./type";
 
@@ -21,6 +23,8 @@ const CoreProvider: React.FC<ReactProps> = (props) => {
   const [theme, setTheme] = useState<any>(Themes.Dark);
   const [isDark, setIsDark] = useState<any>(theme === Themes.Dark);
   const [conditions, setConditions] = useState<GroupProps[]>([]);
+  const [countRules, setCountRules] = useState<number>(0);
+  const [countGroups, setCountGroups] = useState<number>(0);
 
   //Theme
   const toggleTheme = () => {
@@ -90,6 +94,12 @@ const CoreProvider: React.FC<ReactProps> = (props) => {
 
   const [allCondition, setAllCondition] = useState<string>("");
 
+  const [inputFields, setInputFields] = useState<RuleGroupsProps[]>([]);
+
+  const [groupRules, setGroupRules] = useState<GroupProp>({
+    grupos: [],
+  });
+
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -131,6 +141,14 @@ const CoreProvider: React.FC<ReactProps> = (props) => {
         setAllCondition,
         query,
         setQuery,
+        inputFields,
+        setInputFields,
+        groupRules,
+        setGroupRules,
+        countRules,
+        setCountRules,
+        countGroups,
+        setCountGroups,
       }}
       {...props}
     >

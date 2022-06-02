@@ -1,15 +1,19 @@
 import styled from "styled-components";
 import { pxToRem } from "../../../../Styles/global";
-import { DeleteBin2 } from "@styled-icons/remix-line/";
 import { DeleteDismiss } from "@styled-icons/fluentui-system-regular/";
 
 export const Container = styled.div`
   width: 100%;
-  padding: 1rem;
+  height: auto;
 
   background: ${(props) => props.theme.backgroundCard};
   border: ${pxToRem(1)} solid ${(props) => props.theme.borderLine};
   border-radius: ${pxToRem(4)};
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 
   padding: 1rem;
 `;
@@ -21,8 +25,6 @@ export const Rule = styled.form`
   border-radius: ${pxToRem(4)};
   padding: ${pxToRem(16)};
 
-  margin: ${pxToRem(8)};
-
   display: flex;
 `;
 
@@ -32,16 +34,15 @@ export const RuleGroup = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
 
   position: relative;
 `;
 
 export const RuleItem = styled.div`
-  max-width: 200px;
-  min-width: 200px;
+  max-width: ${pxToRem(200)};
+  min-width: ${pxToRem(200)};
 
-  margin: 0 0.5rem;
   input,
   select {
     width: 100%;
@@ -61,18 +62,18 @@ export const ActionRule = styled.div`
 `;
 
 export const IconDelete = styled(DeleteDismiss)`
-  width: 15px;
-  height: 15px;
+  width: ${pxToRem(15)};
+  height: ${pxToRem(15)};
 
   color: ${(props) => props.theme.red};
 `;
 
 export const ButtonAction = styled.button`
-  width: 20px;
-  height: 20px;
+  width: ${pxToRem(20)};
+  height: ${pxToRem(20)};
 
   background: ${(props) => props.theme.backgroundBody};
-  border: 1px solid ${(props) => props.theme.primary300};
+  border: 1px solid ${(props) => props.theme.darkRed};
   border-radius: ${pxToRem(4)};
 
   display: flex;
@@ -82,27 +83,42 @@ export const ButtonAction = styled.button`
 
   cursor: pointer;
 
+  transition: 0.3s;
+
+  ${IconDelete} {
+    color: ${(props) => props.theme.darkRed};
+  }
+
   &:hover {
-    background: ${(props) => props.theme.primary300};
+    background: ${(props) => props.theme.red};
+    border: 1px solid ${(props) => props.theme.darkRed};
     ${IconDelete} {
-      color: ${(props) => props.theme.textDark};
+      color: ${(props) => props.theme.textPrimary};
     }
   }
 `;
 
-export const CombinerContent = styled.div`
-  max-width: 200px;
-  min-width: 200px;
+interface CombinerContentProps {
+  active?: boolean;
+}
 
-  margin: 0 0.5rem;
-  padding: 1rem 1.5rem;
+export const CombinerContent = styled.div<CombinerContentProps>`
+  width: 100%;
+
+  margin: 0.5rem 0;
+  padding: 1rem 0;
   position: relative;
 
+  display: ${(props) => (props.active ? "flex" : "none")};
+
   select {
-    width: 100%;
+    max-width: 200px;
+    min-width: 200px;
+
     border: 1px solid ${(props) => props.theme.primary300};
   }
 
+  /**
   &::before {
     content: "";
     width: 1px;
@@ -123,11 +139,25 @@ export const CombinerContent = styled.div`
     position: absolute;
     left: 130px;
   }
+  */
 
   &:first-child {
+    display: none;
     &::after,
     &::before {
       display: none;
     }
   }
+`;
+
+export const ContainerButtonAddCondition = styled.div`
+  width: 100%;
+  height: auto;
+
+  padding: 1rem 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 `;

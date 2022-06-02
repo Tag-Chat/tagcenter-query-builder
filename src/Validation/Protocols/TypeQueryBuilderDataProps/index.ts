@@ -19,29 +19,6 @@ export interface SelectComponentProps {
   value?: string;
 }
 
-export interface WrapperConditionProps {
-  id: string;
-  idComponent: number;
-  register: UseFormRegister<FieldValues>;
-  itemOption: SelectProps[];
-  watchCondition: string;
-  subItemOption: SelectProps[];
-  watchOperator: string;
-  operatorActive: boolean;
-  responseActive: boolean;
-  dateActive: boolean;
-  actionActive: boolean;
-  actionMoreOptions: boolean;
-  multiDateActive: boolean;
-  moreActionOption: SelectProps[];
-  operatorOption: SelectProps[];
-  responseOption: ResponsesProps;
-  control: Control<FieldValues, any>;
-  addGroup: () => void;
-  addAction: () => void;
-  deleteGroup: () => void;
-}
-
 export interface GroupProps {
   component: string;
   id: number;
@@ -85,6 +62,20 @@ export interface MoreActionProps {
 export enum TypeItemOperatorProps {
   Select = "select",
   Data = "data",
+}
+
+export interface RuleGroupsProps {
+  rule?: number;
+  condition?: string[] | string;
+  operator?: string[] | string;
+  operatorItem?: string[] | string;
+  combiner?: null | string[] | string;
+  response?: null | ResponsesProps;
+  groupId?: number;
+}
+
+export interface GroupProp {
+  grupos: any[];
 }
 
 export interface QueryBuilderDataProps {

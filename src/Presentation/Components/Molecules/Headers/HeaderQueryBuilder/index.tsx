@@ -21,7 +21,10 @@ const HeaderQueryBuilder = ({ title }: HeaderQueryBuilderProps) => {
           id={"allcondition"}
           name="allcondition"
           options={conditionsOptions}
-          onChange={(e) => setAllCondition(e.target.value)}
+          onChange={(e) => (
+            setAllCondition(e.target.value),
+            console.log("condition", e.target.value)
+          )}
         />
       </S.SelectCondition>
     </S.HeaderGroupBlock>

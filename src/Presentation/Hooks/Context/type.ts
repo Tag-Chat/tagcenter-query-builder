@@ -1,4 +1,8 @@
-import { SelectProps } from "./../../../Validation/Protocols/TypeQueryBuilderDataProps/index";
+import {
+  GroupProp,
+  RuleGroupsProps,
+  SelectProps,
+} from "./../../../Validation/Protocols/TypeQueryBuilderDataProps/index";
 import {
   ValueProps,
   ResponsesProps,
@@ -32,4 +36,12 @@ export interface CoreContextProps {
   setAllCondition: React.Dispatch<React.SetStateAction<string>>;
   query: string;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
+  inputFields: RuleGroupsProps[];
+  setInputFields: React.Dispatch<React.SetStateAction<RuleGroupsProps[]>>;
+  groupRules: GroupProp;
+  setGroupRules: React.Dispatch<React.SetStateAction<GroupProp>>;
+  countRules: number;
+  setCountRules: React.Dispatch<React.SetStateAction<number>>;
+  countGroups: number;
+  setCountGroups: React.Dispatch<React.SetStateAction<number>>;
 }

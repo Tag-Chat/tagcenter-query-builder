@@ -6,7 +6,6 @@ import {
   GroupProps,
   QueryBuilderDataProps,
   TypeItemOperatorProps,
-  WrapperConditionProps,
   ConditionActive,
   SelectProps,
   ResponsesProps,
@@ -31,12 +30,12 @@ interface teste {
   operator?: string[] | string;
   operatorItem?: string[] | string;
   combiner?: null | string[] | string;
-  response: null | ResponsesProps;
+  response?: null | ResponsesProps;
+  groupId?: number;
 }
 
 const RulesGroup = () => {
   const [data, setData] = useState<any>(queryBuilderData);
-  const [countRules, setCountRules] = useState<number>(0);
   const {
     itemOption,
     setItemOption,
@@ -53,38 +52,18 @@ const RulesGroup = () => {
     conditionsOptions,
     setQuery,
     query,
+    allCondition,
+    inputFields,
+    setInputFields,
+    groupRules,
+    setGroupRules,
+    countRules,
+    setCountRules,
+    countGroups,
   } = useCore();
 
   const [infoConditions, setInfoConditions] = useState<any>([
     { conditionName: "", values: [], operator: [], combiner: [] },
-  ]);
-
-  const [inputFields, setInputFields] = useState<teste[]>([
-    {
-      rule: countRules,
-      condition: "",
-      operator: "",
-      operatorItem: "",
-      combiner: null,
-      response: null,
-    },
-  ]);
-
-  const [groupRules, setGroupRules] = useState([
-    {
-      id: 0,
-      rules: [
-        {
-          groupId: 0,
-          rule: countRules,
-          condition: "",
-          operator: "",
-          operatorItem: "",
-          combiner: null,
-          response: null,
-        },
-      ],
-    },
   ]);
 
   const [conditionActive, setConditionActive] = useState<ConditionActive>({
@@ -104,8 +83,9 @@ const RulesGroup = () => {
     },
   ];
 
-  const handleAddFields = () => {
+  const handleAddFields = (indexGroup?: number) => {
     const values = [...inputFields];
+    const group = groupRules.grupos;
     values.push({
       rule: countRules + 1,
       condition: "",
@@ -113,7 +93,20 @@ const RulesGroup = () => {
       operatorItem: "",
       combiner: "",
       response: null,
+      groupId: indexGroup,
     });
+
+    group[countGroups].push({
+      rule: countRules + 1,
+      condition: "",
+      operator: "",
+      operatorItem: "",
+      combiner: "",
+      response: null,
+      groupId: indexGroup,
+    });
+
+    setGroupRules({ grupos: [...group] });
     setInputFields(values);
   };
 
@@ -132,6 +125,7 @@ const RulesGroup = () => {
   const handleInputChange = (index: number, event: any) => {
     const values = [...inputFields];
     const conditionInfo = [...infoConditions];
+    const group = groupRules.grupos;
 
     switch (event.target.name) {
       case `condition-${index}`:
@@ -139,8 +133,11 @@ const RulesGroup = () => {
 
         setConditionActive({
           name: event.target.value,
-          label: event.target.label,
+          label: event.target.value,
         });
+
+        group[index].condition = event.target.value;
+        setGroupRules({ grupos: [...group] });
 
         conditionInfo[index] = {
           conditionName: event.target.name,
@@ -157,19 +154,29 @@ const RulesGroup = () => {
           label: event.target.value,
         });
 
+        group[inputFields.length].operator = event.target.value;
+        setGroupRules({ grupos: [...group] });
+
         conditionInfo[index].values = [...subItemOption];
         break;
       case `operatorItem-${index}`:
         values[index].operatorItem = event.target.value;
         conditionInfo[index].operator = [...operatorOption];
+
+        group[inputFields.length].operatorItem = event.target.value;
+        setGroupRules({ grupos: [...group] });
         break;
       case `combiner-${index}`:
         values[index].combiner = event.target.value;
         conditionInfo[index].combiner = [...conditionsOptions];
+
+        group[inputFields.length].combiner = event.target.value;
+        setGroupRules({ grupos: [...group] });
         break;
     }
     setInfoConditions(conditionInfo);
     setInputFields(values);
+
     setQuery(JSON.stringify(inputFields, null, 2));
   };
 
@@ -194,17 +201,21 @@ const RulesGroup = () => {
     setSubItemOption(GetValueDefaultSelect({ data, conditionActive }));
     // get operator
     setOperatorOption(GetOperatorSelect({ data, conditionActive }));
-
+    // get response
     setResponseOption(GetResponseInput({ data, conditionActive }));
-  }, [conditionActive]);
+
+    console.log("condition", groupRules);
+  }, [conditionActive, allCondition, inputFields, groupRules]);
 
   return (
     <S.Container>
       {inputFields.map((inputField, index) => (
         <>
-          <S.CombinerContent>
+          <S.CombinerContent active={inputFields[index]?.combiner !== null}>
             {inputFields[index]?.combiner !== null && (
-              <S.RuleItem>
+              <S.RuleItem
+                key={`${inputFields[index]?.combiner}-${inputField}-${index}`}
+              >
                 <Select
                   id={`combiner-${index}`}
                   name={`combiner-${index}`}
@@ -219,7 +230,7 @@ const RulesGroup = () => {
             )}
           </S.CombinerContent>
           <S.Rule>
-            <S.RuleGroup key={`${inputField}~${index}`}>
+            <S.RuleGroup key={`${inputField}-${index}`}>
               <S.RuleItem>
                 <Select
                   id={`condition-${index}`}
@@ -261,7 +272,9 @@ const RulesGroup = () => {
                   />
                 </S.RuleItem>
               )}
-              {operatorActive.name && responseOption && <>tem resposta</>}
+              {responseOption?.type &&
+                responseOption &&
+                inputField.rule === index && <>{operatorActive?.label}</>}
               <S.ActionRule>
                 <S.ButtonAction
                   type="button"
@@ -276,16 +289,18 @@ const RulesGroup = () => {
           </S.Rule>
         </>
       ))}
-      <div style={{ marginLeft: "1rem" }}>
+      <S.ContainerButtonAddCondition>
         <Button
           type="button"
-          onClick={() => (handleAddFields(), setCountRules(countRules + 1))}
+          onClick={() => (
+            handleAddFields(countGroups), setCountRules(countRules + 1)
+          )}
           sizeButton="sm"
           maxWidth="200px"
         >
           Criar outra condição
         </Button>
-      </div>
+      </S.ContainerButtonAddCondition>
       {/**
         *  <div>
         <Button type="reset" onClick={resetForm} sizeButton="sm">
@@ -293,7 +308,6 @@ const RulesGroup = () => {
         </Button>
       </div>
         */}
-      <pre>{query}</pre>
     </S.Container>
   );
 };
