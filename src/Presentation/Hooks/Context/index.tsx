@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { queryBuilderData } from "../../../Data";
 import * as Themes from "../../Styles/Themes";
 import { ThemeProvider as StyledProvider } from "styled-components";
 import { setCookie, parseCookies } from "nookies";
@@ -43,43 +44,28 @@ const CoreProvider: React.FC<ReactProps> = (props) => {
     );
   };
 
+  useEffect(() => {
+    const { "@TagChat.Theme": cookieTheme } = parseCookies();
+
+    if (!!cookieTheme) {
+      setTheme(cookieTheme === "dark" ? Themes.Dark : Themes.Light);
+    }
+  }, []);
+
   //QueryBuilder
+  const [data, setData] = useState(queryBuilderData.items);
+  const [allCondition, setAllCondition] = useState<string>("");
+  const [inputFields, setInputFields] = useState<RuleGroupsProps[]>([]);
+  const [query, setQuery] = useState("");
+
+  const [groupRules, setGroupRules] = useState<[][]>([]);
+
   const [itemOption, setItemOption] = useState<ValueProps[]>([
     {
       value: "",
       label: "",
     },
   ]);
-
-  const [subItemOption, setSubItemOption] = useState<ValueProps[]>([
-    {
-      value: "",
-      label: "",
-    },
-  ]);
-
-  const [operatorOption, setOperatorOption] = useState<ValueProps[]>([
-    {
-      value: "",
-      label: "",
-    },
-  ]);
-
-  const [responseOption, setResponseOption] = useState<ResponsesProps>({
-    type: "",
-    label: "",
-  });
-
-  const [moreActionOption, setMoreActionOption] = useState<ValueProps[]>([
-    {
-      value: "",
-      label: "",
-    },
-  ]);
-
-  const [operatorActive, setOperatorActive] = useState<boolean>(false);
-  const [multiDateActive, setMulitDateActive] = useState<boolean>(false);
-  const [dateActive, setDateActive] = useState<boolean>(false);
 
   const [conditionsOptions, setConditionsOptions] = useState<SelectProps[]>([
     {
@@ -92,25 +78,35 @@ const CoreProvider: React.FC<ReactProps> = (props) => {
     },
   ]);
 
-  const [allCondition, setAllCondition] = useState<string>("");
-
-  const [inputFields, setInputFields] = useState<RuleGroupsProps[]>([]);
-
-  const [groupRules, setGroupRules] = useState<GroupProp>({
-    grupos: [],
-  });
-
-  const [query, setQuery] = useState("");
+  const [rules, setRules] = useState<RuleGroupsProps[]>([
+    {
+      rule: countRules,
+      condition: "",
+      operator: "",
+      operatorValues: [],
+      operatorItem: "",
+      operatorItemValues: [],
+      operatorDate: "",
+      operatorMultidate: "",
+      combiner: "",
+      response: [],
+      responseUser: "",
+      groupId: groupRules.length,
+    },
+  ]);
 
   useEffect(() => {
-    const { "@TagChat.Theme": cookieTheme } = parseCookies();
-
-    if (!!cookieTheme) {
-      setTheme(cookieTheme === "dark" ? Themes.Dark : Themes.Light);
-    }
+    const listSelect: ValueProps[] = [];
+    data.map(
+      (item: any) =>
+        item.name &&
+        listSelect.push({
+          value: item.name,
+          label: item.name,
+        })
+    );
+    setItemOption(listSelect);
   }, []);
-
-  //QueryBuilder
 
   return (
     <CoreContext.Provider
@@ -120,20 +116,6 @@ const CoreProvider: React.FC<ReactProps> = (props) => {
         toggleTheme,
         itemOption,
         setItemOption,
-        subItemOption,
-        setSubItemOption,
-        operatorOption,
-        setOperatorOption,
-        responseOption,
-        setResponseOption,
-        moreActionOption,
-        setMoreActionOption,
-        operatorActive,
-        setOperatorActive,
-        multiDateActive,
-        setMulitDateActive,
-        dateActive,
-        setDateActive,
         conditions,
         setConditions,
         conditionsOptions,
@@ -149,6 +131,9 @@ const CoreProvider: React.FC<ReactProps> = (props) => {
         setCountRules,
         countGroups,
         setCountGroups,
+        data,
+        rules,
+        setRules,
       }}
       {...props}
     >

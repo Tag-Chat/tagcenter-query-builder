@@ -1,0 +1,12 @@
+{
+  "condition": [
+    {
+      "value": "e",
+      "label": "E"
+    },
+    {
+      "value": "ou",
+      "label": "OU"
+    }
+  ]
+}

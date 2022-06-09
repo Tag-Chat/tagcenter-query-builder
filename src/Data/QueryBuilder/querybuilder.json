@@ -21,6 +21,7 @@
       ],
       "operator": [
         {
+          "label": null,
           "value": [
             "contém",
             "não contém",
@@ -45,7 +46,7 @@
       "action": false,
       "type": "select",
       "valueDefault": ["Contém a tag", "Não contém a tag"],
-      "operator": [{ "value": ["vem da api"] }],
+      "operator": [{ "label": null, "value": ["vem da api"] }],
       "typeItemOperator": "select",
       "customItems": [],
       "typeItemCustomItems": "select",
@@ -74,7 +75,7 @@
       "action": false,
       "type": "select",
       "valueDefault": ["É", "Não é"],
-      "operator": [{ "value": ["vem da api"] }],
+      "operator": [{ "label": null, "value": ["vem da api"] }],
       "typeItemOperator": "select",
       "customItems": [],
       "typeItemCustomItems": "select",
@@ -86,7 +87,7 @@
       "action": false,
       "type": "select",
       "valueDefault": ["O lead é", "O lead não é"],
-      "operator": [{ "value": ["Soft Bounce", "Hard Bounce"] }],
+      "operator": [{ "label": null, "value": ["Soft Bounce", "Hard Bounce"] }],
       "typeItemOperator": "select",
       "customInput": null,
       "response": null
@@ -263,6 +264,7 @@
       ],
       "operator": [
         {
+          "label": null,
           "value": [
             "contém",
             "não contém",
@@ -286,6 +288,7 @@
       "valueDefault": ["O Lead é uma", "O Lead não é uma"],
       "operator": [
         {
+          "label": null,
           "value": ["oportunidade", "oportunidade perdida"]
         }
       ],
@@ -297,6 +300,7 @@
       "name": "Venda",
       "action": true,
       "type": "select",
+      "operator": null,
       "valueDefault": ["O Lead possui venda", "O Lead não possui venda"],
       "customInput": [
         "em qualquer data",
@@ -317,6 +321,7 @@
       "valueDefault": ["é", "não é"],
       "operator": [
         {
+          "label": null,
           "value": ["Lead", "Lead qualificado", "Cliente"]
         }
       ],
@@ -338,11 +343,7 @@
       "action": false,
       "type": "select",
       "valueDefault": ["é", "não é"],
-      "operator": [
-        {
-          "value": ["A", "B", "C", "D"]
-        }
-      ],
+      "operator": [{ "label": null, "value": ["A", "B", "C", "D"] }],
       "typeItemOperator": "select",
       "response": null
     },
@@ -351,11 +352,7 @@
       "action": false,
       "type": "select",
       "valueDefault": ["é", "não é", "é maior que", "é menor que"],
-      "operator": [
-        {
-          "value": [""]
-        }
-      ],
+      "operator": [{ "label": null, "value": [""] }],
       "typeItemOperator": "select number",
       "response": null
     },
@@ -364,6 +361,7 @@
       "action": true,
       "type": "select",
       "valueDefault": ["qualquer página"],
+      "operator": null,
       "customInput": [
         "em qualquer data",
         "no dia",
@@ -380,6 +378,7 @@
       "name": "Não visitou a página",
       "action": true,
       "type": "select",
+      "operator": null,
       "valueDefault": ["qualquer página"],
       "customInput": [
         "em qualquer data",
@@ -397,6 +396,7 @@
       "name": "Recebeu o email",
       "action": true,
       "type": "select",
+      "operator": null,
       "valueDefault": ["qualquer página"],
       "customInput": [
         "em qualquer data",
@@ -413,7 +413,7 @@
     {
       "name": "Não recebeu o email",
       "action": true,
-      "type": "select",
+      "operator": null,
       "valueDefault": ["qualquer página"],
       "customInput": [
         "em qualquer data",
@@ -430,7 +430,7 @@
     {
       "name": "Abriu o email",
       "action": true,
-      "type": "select",
+      "operator": null,
       "valueDefault": ["qualquer página"],
       "customInput": [
         "em qualquer data",
@@ -448,6 +448,7 @@
       "name": "Recebeu e não abriu o email",
       "action": true,
       "type": "select",
+      "operator": null,
       "valueDefault": ["qualquer página"],
       "customInput": [
         "em qualquer data",
@@ -465,6 +466,7 @@
       "name": "Clicou no link do email",
       "action": true,
       "type": "select",
+      "operator": null,
       "valueDefault": ["qualquer página"],
       "customInput": [
         "em qualquer data",
@@ -482,6 +484,7 @@
       "name": "Recebeu e não clicou no link do email",
       "action": true,
       "type": "select",
+      "operator": null,
       "valueDefault": ["qualquer página"],
       "customInput": [
         "em qualquer data",
@@ -499,6 +502,7 @@
       "name": "Abriu o email",
       "action": true,
       "type": "select",
+      "operator": null,
       "valueDefault": ["qualquer página"],
       "customInput": [
         "em qualquer data",
@@ -516,6 +520,7 @@
       "name": "Iniciou o fluxo",
       "action": true,
       "type": "select",
+      "operator": null,
       "valueDefault": ["qualquer página"],
       "customInput": [
         "em qualquer data",
@@ -533,6 +538,7 @@
       "name": "Não iniciou o fluxo",
       "action": true,
       "type": "select",
+      "operator": null,
       "valueDefault": ["qualquer página"],
       "customInput": [
         "em qualquer data",
@@ -550,6 +556,7 @@
       "name": "Completou o fluxo",
       "action": true,
       "type": "select",
+      "operator": null,
       "valueDefault": ["qualquer página"],
       "customInput": [
         "em qualquer data",
@@ -567,6 +574,7 @@
       "name": "Recebeu o email do fluxo",
       "action": true,
       "type": "select",
+      "operator": null,
       "valueDefault": ["qualquer página"],
       "customInput": [
         "em qualquer data",
@@ -584,6 +592,7 @@
       "name": "Não recebeu o email do fluxo",
       "action": true,
       "type": "select",
+      "operator": null,
       "valueDefault": ["qualquer página"],
       "customInput": [
         "em qualquer data",
@@ -601,6 +610,7 @@
       "name": "Abriu o email do fluxo",
       "action": true,
       "type": "select",
+      "operator": null,
       "valueDefault": ["qualquer página"],
       "customInput": [
         "em qualquer data",
@@ -618,6 +628,7 @@
       "name": "Não recebeu o email do fluxo",
       "action": true,
       "type": "select",
+      "operator": null,
       "valueDefault": ["qualquer página"],
       "customInput": [
         "em qualquer data",
@@ -635,6 +646,7 @@
       "name": "Clicou no link do email",
       "action": true,
       "type": "select",
+      "operator": null,
       "valueDefault": ["qualquer página"],
       "customInput": [
         "em qualquer data",
@@ -652,6 +664,7 @@
       "name": "Recebeu e não clicou no link do email",
       "action": true,
       "type": "select",
+      "operator": null,
       "valueDefault": ["qualquer página"],
       "customInput": [
         "em qualquer data",
@@ -669,6 +682,7 @@
       "name": "Envio de comunicação",
       "action": false,
       "type": "select",
+      "operator": null,
       "valueDefault": [
         "O Lead possui base legal para comunicação",
         "O Lead não possui base legal para comunicação",
@@ -681,6 +695,7 @@
       "name": "CRM",
       "action": false,
       "type": "select",
+      "operator": null,
       "valueDefault": [
         "Oportunidade criada",
         "Oportunidade perdida",
@@ -696,6 +711,7 @@
       "name": "E-Commerce",
       "action": false,
       "type": "select",
+      "operator": null,
       "valueDefault": [
         "Carrinho abandonado",
         "Carrinho abandonado - item",
@@ -709,6 +725,7 @@
       "name": "Chat",
       "action": false,
       "type": "select",
+      "operator": null,
       "valueDefault": ["Chat finalizado", "Chat iniciado"],
       "customInput": null,
       "response": null
@@ -717,6 +734,7 @@
       "name": "Mídia",
       "action": false,
       "type": "select",
+      "operator": null,
       "customInput": null,
       "valueDefault": [
         "Reprodução de mídia iniciada",

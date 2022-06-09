@@ -6,19 +6,13 @@ export const Wrapper = styled.div<{ error?: boolean }>`
   display: flex;
   flex-direction: column;
   width: 100%;
-  ${({ error }) =>
-    !error
-      ? css`
-          margin-bottom: 1rem;
-        `
-      : ""}
 `;
 
 export const CalendarCheckFillIcon = styled(CalendarCheckFill)``;
 
 export const Container = styled.div`
   width: 100%;
-  height: 50px;
+  height: 52px;
 
   background: ${(props) => props.theme.backgroundInputFormV2};
   background-image: url("/icons/calendar.svg");
@@ -28,6 +22,8 @@ export const Container = styled.div`
 
   display: flex;
   align-items: center;
+
+  border-radius: ${pxToRem(4)};
 
   .rdt {
     width: 80%;
@@ -50,18 +46,29 @@ export const Container = styled.div`
     .rdtPicker {
       width: 100%;
 
-      background: ${(props) => props.theme.backgroundBody};
+      background: ${(props) => props.theme.backgroundInputFormV2};
       color: ${(props) => props.theme.textPrimary};
-      border: none;
+      border: ${pxToRem(1)} solid ${(props) => props.theme.primary300};
 
-      right: 0;
+      right: ${pxToRem(8)};
 
       font-size: ${pxToRem(14)};
 
-      border-radius: ${pxToRem(8)};
+      border-radius: ${pxToRem(4)};
 
       th {
         border-bottom: 1px solid ${(props) => props.theme.primary300};
+      }
+
+      .dow,
+      .rdtDay {
+        height: ${pxToRem(28)} !important;
+        line-height: ${pxToRem(28)};
+      }
+
+      .rdtDay,
+      .rdtActive {
+        width: ${pxToRem(28)} !important;
       }
 
       .rdtNext,

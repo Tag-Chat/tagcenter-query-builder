@@ -13,10 +13,18 @@ const Select = ({
 }: SelectComponentProps) => {
   return (
     <S.Container>
-      <select id={id} name={name} onChange={onChange} onClick={onClick}>
+      <select
+        id={id}
+        value={value}
+        name={name}
+        onChange={onChange}
+        onClick={onClick}
+      >
         <option value="Selecione">Selecione</option>
-        {options.map((item: any) => (
-          <option value={item.value}>{item.label}</option>
+        {options.map((item: any, index) => (
+          <option key={index} value={item.value}>
+            {item.label}
+          </option>
         ))}
       </select>
     </S.Container>

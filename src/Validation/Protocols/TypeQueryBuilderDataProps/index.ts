@@ -65,13 +65,18 @@ export enum TypeItemOperatorProps {
 }
 
 export interface RuleGroupsProps {
-  rule?: number;
-  condition?: string[] | string;
-  operator?: string[] | string;
-  operatorItem?: string[] | string;
-  combiner?: null | string[] | string;
-  response?: null | ResponsesProps;
-  groupId?: number;
+  rule: number;
+  condition: string[] | string;
+  operator: string;
+  operatorValues: ValueProps[];
+  operatorItem: string;
+  operatorItemValues: ValueProps[];
+  operatorDate: string;
+  operatorMultidate: string;
+  combiner: null | string[] | string;
+  response: null | ResponsesProps[];
+  groupId: number;
+  responseUser: string;
 }
 
 export interface GroupProp {
@@ -95,4 +100,10 @@ export interface QueryBuilderDataProps {
 
 export interface TypeQueryBuilderDataProps {
   items: QueryBuilderDataProps[];
+}
+
+export interface InputProps {
+  name: string;
+  type: string;
+  placeholder: string;
 }

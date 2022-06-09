@@ -1,45 +1,39 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useCore } from "../../../Hooks/Context";
+import {
+  ValueProps,
+  RuleGroupsProps,
+} from "../../../../Validation/Protocols/TypeQueryBuilderDataProps";
 
-import { Button } from "../../Atoms/Button";
+import HeaderQueryBuilder from "./HeaderQueryBuilder";
 
 import * as S from "./style";
-import { HeaderQueryBuilder } from "../../Molecules/Headers";
+import WrapperRule from "./WrapperRule";
 
-import RulesGroup from "./RulesGroup";
 const QueryBuilder = () => {
-  const { groupRules, setGroupRules, inputFields, allCondition } = useCore();
-
-  const handleAddGroup = useCallback(() => {
-    const listGroup = groupRules.grupos;
-    if (listGroup.length >= 1) {
-      listGroup.push({ combiner: allCondition });
-      listGroup.push([...inputFields]);
-    } else {
-      listGroup.push([...inputFields]);
-    }
-    setGroupRules({ grupos: [...listGroup] });
-  }, [groupRules, allCondition]);
+  const {
+    data,
+    conditionsOptions,
+    allCondition,
+    setAllCondition,
+    groupRules,
+    countRules,
+    itemOption,
+  } = useCore();
 
   return (
     <S.Container>
-      <S.GroupBlock>
-        <HeaderQueryBuilder title={`Grupo Quero Leads que atendam`} />
-        {groupRules?.grupos?.map(
-          (group, index) =>
-            group instanceof Array && (
-              <S.ContentCondition>
-                <RulesGroup />
-              </S.ContentCondition>
-            )
-        )}
-        <S.GroupAction>
-          <Button maxWidth={"290px"} onClick={() => handleAddGroup()}>
-            Criar outro grupo
-          </Button>
-        </S.GroupAction>
-      </S.GroupBlock>
+      <S.QueryBuilder>
+        <HeaderQueryBuilder
+          title={`Grupo 0 Quero Leads que atendam`}
+          options={conditionsOptions}
+          value={allCondition}
+          groupRules={groupRules}
+          onChange={(e: any) => setAllCondition(e.currentTarget.value)}
+        />
+        <WrapperRule />
+      </S.QueryBuilder>
     </S.Container>
   );
 };

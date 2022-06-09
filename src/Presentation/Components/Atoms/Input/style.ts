@@ -1,63 +1,50 @@
+import { darken, lighten } from "polished";
 import styled from "styled-components";
+import { pxToRem } from "../../../Styles/global";
 
-export interface ContainerProps {
-  withIcon: boolean;
-  hasError: boolean;
-  usePadding: boolean;
-  iconToRight: boolean;
-}
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.div`
   width: 100%;
-  position: relative;
+  height: ${pxToRem(56)};
 
-  ${(props) =>
-    props.usePadding &&
-    `
-			padding-bottom: ${props.hasError ? ".2rem" : "1rem"};
-	`}
-
-  label {
-    padding-left: 10px;
-  }
-  input:disabled {
-    color: ${(props) => props.theme.textSecondary};
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
   input {
     box-sizing: border-box;
     width: 100%;
     display: block;
     outline: none;
+    resize: vertical;
+    appearance: none;
 
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus {
-      border: ${(props) => `solid 1px  ${props.theme.primary300}`};
+      border: 0px solid ${(props) => props.theme.primary300};
       -webkit-text-fill-color: ${(props) => props.theme.textSecondary};
       transition: background-color 5000s ease-in-out 0s;
     }
 
-    background: ${(props) => props.theme.backgroundInputFormV2};
-    height: 54px;
-    padding: ${(props) =>
-      props.withIcon ? "14px 14px 0 36px" : "14px 14px 0 14px"};
+    background-color: ${(props) =>
+      props.theme.name === "Dark" ? "#00000050" : "#FEFEFE"} !important;
+    padding: 14px 14px 14px 7px;
     color: ${(props) => props.theme.textPrimary};
     border-radius: 0.188rem;
     font-size: 0.95rem;
-
-    border: 1px solid
-      ${(props) => (props.hasError ? `${props.theme.errorRed}` : "transparent")};
+    border: 1px solid transparent;
 
     &:focus-within {
       border: ${(props) => `solid 1px  ${props.theme.primary300}`};
     }
 
     &:focus + label {
-      color: ${(props) => props.theme.primary300};
+      color: ${(props) => props.theme.primary300} !important;
       pointer-events: none;
-      top: 6px;
-      font-size: 12px;
+      font-size: 12px !important;
       font-weight: 600;
+      top: 12px;
     }
 
     &:focus-within:nth-child(3) {
@@ -67,40 +54,7 @@ export const Container = styled.div<ContainerProps>`
     &:not(:placeholder-shown) + label {
       color: ${(props) => props.theme.primary300};
       pointer-events: none;
-      top: 6px;
       font-size: 12px;
-    }
-  }
-
-  input[type="number"] {
-    -moz-appearance: textfield;
-    -webkit-appearance: textfield;
-    margin: 0;
-  }
-
-  svg {
-    position: absolute;
-    top: 18px;
-    left: 10px;
-    width: 20px;
-    color: ${(props) => props.theme.textSecondary};
-
-    &.password ${({ iconToRight }) => (iconToRight ? ", &" : "")} {
-      top: 18px;
-      left: auto;
-      right: 16px;
-      cursor: pointer;
-      transition: color 0.1s ease-in-out;
-
-      &:hover {
-        color: ${(props) => props.theme.primary300};
-      }
-    }
-  }
-
-  &:focus {
-    svg {
-      color: ${(props) => props.theme.primary300};
     }
   }
 `;
