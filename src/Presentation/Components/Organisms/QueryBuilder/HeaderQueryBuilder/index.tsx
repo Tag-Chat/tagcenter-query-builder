@@ -1,6 +1,4 @@
 import React from "react";
-import { useCore } from "../../../../Hooks/Context";
-
 import { Select } from "../../../Atoms";
 
 import * as S from "./style";

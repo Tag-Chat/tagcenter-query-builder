@@ -8,10 +8,11 @@ import { useCore } from "../../../../Hooks/Context";
 import { Select } from "../../../Atoms";
 import { InputResponse } from "../../../Atoms";
 import { DataTime } from "../../../Atoms";
+import { Button } from "../../../Atoms";
 
 import * as S from "./style";
 
-const WrapperRule = () => {
+const WrapperRule = ({ indice }: any) => {
   const {
     itemOption,
     rules,
@@ -20,11 +21,18 @@ const WrapperRule = () => {
     groupRules,
     setGroupRules,
     countGroups,
+    countRules,
+    setCountRules,
+    conditionsOptions,
+    allConditionGroupValue,
   } = useCore();
   const [activeCondition, setActiveCondition] = useState<string[]>([]);
   const [activeOperator, setActiveOperator] = useState<string[]>([]);
   const [activeOperatorItem, setActiveOperatorItem] = useState<string[]>([]);
   const [activeResponse, setActiveResponse] = useState<string[]>([]);
+  const [activeConditionGroups, setActiveConditionGroups] = useState<string[]>(
+    []
+  );
   const [activeData, setActivedata] = useState<string[]>([]);
   const [activeInputData, setActiveInputData] = useState<boolean[]>([]);
   const [activeInputMultiData, setActiveInputMultiData] = useState<boolean[]>(
@@ -132,6 +140,7 @@ const WrapperRule = () => {
           }
         }
       });
+
       listOperator[index] = true;
       setActiveInputOperator(listOperator);
 
@@ -145,9 +154,9 @@ const WrapperRule = () => {
       const listGroup: any[] = [...groupRules];
 
       if (listGroup.length === 0) {
-        listGroup.push(rules);
+        listGroup[index].push(rules);
         setGroupRules(listGroup);
-      } else {
+      } else if (listGroup.length > 0) {
         listGroup[countGroups][index].condition = e.currentTarget.value;
         setGroupRules(listGroup);
       }
@@ -207,6 +216,10 @@ const WrapperRule = () => {
       const listRules: RuleGroupsProps[] = [...rules];
       listRules[index].operatorItem = e.currentTarget.value;
       setRules(listRules);
+
+      const listGroup: any[] = [...groupRules];
+      listGroup[countGroups][index].operatorItem = e.currentTarget.value;
+      setGroupRules(listGroup);
     },
     [rules]
   );
@@ -221,6 +234,10 @@ const WrapperRule = () => {
       const listRules: RuleGroupsProps[] = [...rules];
       listRules[index].responseUser = e.currentTarget.value;
       setRules(listRules);
+
+      const listGroup: any[] = [...groupRules];
+      listGroup[countGroups][index].responseUser = e.currentTarget.value;
+      setGroupRules(listGroup);
     },
     [rules]
   );
@@ -234,6 +251,10 @@ const WrapperRule = () => {
     const listRules: RuleGroupsProps[] = [...rules];
     listRules[index].operatorDate = newDate;
     setRules(listRules);
+
+    const listGroup: any[] = [...groupRules];
+    listGroup[countGroups][index].operatorDate = e.currentTarget.value;
+    setGroupRules(listGroup);
   }, []);
 
   //multi data
@@ -245,96 +266,194 @@ const WrapperRule = () => {
     const listRules: RuleGroupsProps[] = [...rules];
     listRules[index].operatorMultidate = newDate;
     setRules(listRules);
+
+    const listGroup: any[] = [...groupRules];
+    listGroup[countGroups][index].operatorMultidate = e.currentTarget.value;
+    setGroupRules(listGroup);
   }, []);
 
-  console.log(
-    "logs::",
-    activeCondition,
-    activeOperator,
-    activeOperatorItem,
-    rules
+  //condition options
+  const handleActiveConditionOption = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
+      if (allConditionGroupValue === "all") {
+        const value = e.currentTarget.value;
+        const listConditionGroups = [...activeConditionGroups];
+        listConditionGroups[0] = value;
+        setActiveConditionGroups(listConditionGroups);
+
+        const listRules: RuleGroupsProps[] = [...rules];
+        listRules[index].combiner = listConditionGroups[0];
+        setRules(listRules);
+      } else if (allConditionGroupValue === "each") {
+        const value = e.currentTarget.value;
+        const listConditionGroups = [...activeConditionGroups];
+        listConditionGroups[index] = value;
+        setActiveConditionGroups(listConditionGroups);
+
+        const listRules: RuleGroupsProps[] = [...rules];
+        listRules[index].combiner = listConditionGroups[index];
+        setRules(listRules);
+      }
+    },
+    [allConditionGroupValue, rules]
   );
 
-  useEffect(() => {}, []);
+  //add rule
+  const handleAddRule = useCallback(
+    (index: number) => {
+      const listRules: any[] = [...rules];
+      const listGroup: any[] = [...groupRules];
+
+      listRules.push({
+        rule: countRules + 1,
+        condition: "",
+        operator: "",
+        operatorValues: [],
+        operatorItem: "",
+        operatorItemValues: [],
+        operatorDate: "",
+        operatorMultidate: "",
+        combiner: "",
+        response: [],
+        responseUser: "",
+        groupId: groupRules.length,
+      });
+
+      setRules(listRules);
+
+      listGroup[countGroups].push({
+        rule: countRules + 1,
+        condition: "",
+        operator: "",
+        operatorValues: [],
+        operatorItem: "",
+        operatorItemValues: [],
+        operatorDate: "",
+        operatorMultidate: "",
+        combiner: "",
+        response: [],
+        responseUser: "",
+        groupId: groupRules.length,
+      });
+
+      setGroupRules(listGroup);
+    },
+    [rules, countGroups, countRules, groupRules]
+  );
+
+  console.log("logs::", allConditionGroupValue, groupRules, groupRules.length);
 
   return (
     <S.Container>
-      {rules?.map(
+      {groupRules[indice]?.map(
         (item, index) =>
           item && (
-            <S.WrapperRule key={`rule-${index}-tagcenter`}>
-              <S.ContentSelect>
-                <Select
-                  id={"teste"}
-                  name={"teste"}
-                  value={activeCondition[index]}
-                  options={itemOption}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    handleActiveCondition(e, index)
-                  }
-                />
-              </S.ContentSelect>
-              {activeInputOperator[index] && (
+            <>
+              {index > 0 && (
+                <S.WrapperCondition
+                  key={`condition-${index + index + 1}-tagcenter`}
+                >
+                  <S.ContentConditionSelect>
+                    <Select
+                      id={"teste"}
+                      name={"teste"}
+                      value={
+                        allConditionGroupValue === "all"
+                          ? activeConditionGroups[0]
+                          : activeConditionGroups[index]
+                      }
+                      options={conditionsOptions}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                        handleActiveConditionOption(e, index)
+                      }
+                    />
+                  </S.ContentConditionSelect>
+                </S.WrapperCondition>
+              )}
+              <S.WrapperRule key={`rule-${index + index + 1}-tagcenter`}>
                 <S.ContentSelect>
                   <Select
                     id={"teste"}
                     name={"teste"}
-                    value={activeOperator[index]}
-                    options={rules[index]?.operatorValues}
+                    value={activeCondition[index]}
+                    options={itemOption}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                      handleActiveOperator(e, index)
+                      handleActiveCondition(e, index)
                     }
                   />
                 </S.ContentSelect>
-              )}
-              {activeInputOperatorItem[index] &&
-                rules[index]?.operatorItemValues.length > 0 && (
+                {activeInputOperator[index] && (
                   <S.ContentSelect>
                     <Select
                       id={"teste"}
                       name={"teste"}
-                      value={activeOperatorItem[index]}
-                      options={rules[index]?.operatorItemValues}
+                      value={activeOperator[index]}
+                      options={rules[index]?.operatorValues}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                        handleActiveOperatorItem(e, index)
+                        handleActiveOperator(e, index)
                       }
                     />
                   </S.ContentSelect>
                 )}
-              {activeInputData[index] && (
-                <S.ContentSelect>
-                  <DataTime
-                    title={activeInputMultiData[index] ? "De" : "Data"}
-                    name={"Data"}
-                    onChange={(e: any) => handleActiveData(e, index)}
-                  />
-                </S.ContentSelect>
-              )}
-              {activeInputMultiData[index] && (
-                <S.ContentSelect>
-                  <DataTime
-                    title={"Para"}
-                    name={"Datafor"}
-                    onChange={(e) => handleActiveMultiData(e, index)}
-                  />
-                </S.ContentSelect>
-              )}
-              {activeInputResponse[index] && (
-                <S.ContentResponse>
-                  <InputResponse
-                    name={"teste"}
-                    type={`${rules[index]?.response[index].type}`}
-                    value={activeResponse[index]}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                      handleActiveResponse(e, index)
-                    }
-                    placeholder={`${rules[index]?.response[index].label}`}
-                  />
-                </S.ContentResponse>
-              )}
-            </S.WrapperRule>
+                {activeInputOperatorItem[index] &&
+                  rules[index]?.operatorItemValues.length > 0 && (
+                    <S.ContentSelect>
+                      <Select
+                        id={"teste"}
+                        name={"teste"}
+                        value={activeOperatorItem[index]}
+                        options={rules[index]?.operatorItemValues}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                          handleActiveOperatorItem(e, index)
+                        }
+                      />
+                    </S.ContentSelect>
+                  )}
+                {activeInputData[index] && (
+                  <S.ContentSelect>
+                    <DataTime
+                      title={activeInputMultiData[index] ? "De" : "Data"}
+                      name={"Data"}
+                      onChange={(e: any) => handleActiveData(e, index)}
+                    />
+                  </S.ContentSelect>
+                )}
+                {activeInputMultiData[index] && (
+                  <S.ContentSelect>
+                    <DataTime
+                      title={"Para"}
+                      name={"Datafor"}
+                      onChange={(e) => handleActiveMultiData(e, index)}
+                    />
+                  </S.ContentSelect>
+                )}
+                {activeInputResponse[index] && (
+                  <S.ContentResponse>
+                    <InputResponse
+                      name={"teste"}
+                      type={`${rules[index]?.response[index].type}`}
+                      value={activeResponse[index]}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                        handleActiveResponse(e, index)
+                      }
+                      placeholder={`${rules[index]?.response[index].label}`}
+                    />
+                  </S.ContentResponse>
+                )}
+              </S.WrapperRule>
+            </>
           )
       )}
+      <S.ContentButton>
+        <Button
+          maxWidth={"250px"}
+          onClick={() => (
+            setCountRules(countRules + 1), handleAddRule(countGroups)
+          )}
+        >
+          Criar outra condição
+        </Button>
+      </S.ContentButton>
     </S.Container>
   );
 };

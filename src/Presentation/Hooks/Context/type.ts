@@ -24,8 +24,8 @@ export interface CoreContextProps {
   setQuery: React.Dispatch<React.SetStateAction<string>>;
   inputFields: RuleGroupsProps[];
   setInputFields: React.Dispatch<React.SetStateAction<RuleGroupsProps[]>>;
-  groupRules: [][];
-  setGroupRules: React.Dispatch<React.SetStateAction<[][]>>;
+  groupRules: any[][];
+  setGroupRules: React.Dispatch<React.SetStateAction<any[][]>>;
   countRules: number;
   setCountRules: React.Dispatch<React.SetStateAction<number>>;
   countGroups: number;
@@ -33,4 +33,7 @@ export interface CoreContextProps {
   data: any;
   rules: RuleGroupsProps[];
   setRules: React.Dispatch<React.SetStateAction<RuleGroupsProps[]>>;
+  allConditionGroup: SelectProps[];
+  setAllConditionGroupValue: React.Dispatch<React.SetStateAction<string>>;
+  allConditionGroupValue: string;
 }

@@ -55,14 +55,12 @@ export const Container = styled.div<ContainerProps>`
 
     border: 0;
     width: 100%;
-    letter-spacing: 0.05rem;
     font-family: "Nunito", sans-serif;
     border-radius: 0.188rem;
     transition: background 0.2s ease-in-out;
     display: flex;
     align-items: center;
     gap: 0.2rem;
-    font-weight: 600;
 
     justify-content: center;
 
@@ -110,7 +108,7 @@ export const Container = styled.div<ContainerProps>`
       border: 1px solid ${(props) => props.theme.primary300};
 
       color: ${(props) => props.theme.textButtons};
-
+      font-size: 0.9rem;
       &:hover {
         background: ${(props) =>
           props.theme.name === "Dark" ? "#36EB7E10" : "#62C0B2"} !important;

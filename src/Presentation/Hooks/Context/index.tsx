@@ -55,15 +55,26 @@ const CoreProvider: React.FC<ReactProps> = (props) => {
   //QueryBuilder
   const [data, setData] = useState(queryBuilderData.items);
   const [allCondition, setAllCondition] = useState<string>("");
+  const [allConditionGroupValue, setAllConditionGroupValue] =
+    useState<string>("");
   const [inputFields, setInputFields] = useState<RuleGroupsProps[]>([]);
   const [query, setQuery] = useState("");
-
-  const [groupRules, setGroupRules] = useState<[][]>([]);
 
   const [itemOption, setItemOption] = useState<ValueProps[]>([
     {
       value: "",
       label: "",
+    },
+  ]);
+
+  const [allConditionGroup, setAllConditionGroup] = useState<SelectProps[]>([
+    {
+      value: "all",
+      label: "Todas as condições",
+    },
+    {
+      value: "each",
+      label: "Uma das condições",
     },
   ]);
 
@@ -78,21 +89,25 @@ const CoreProvider: React.FC<ReactProps> = (props) => {
     },
   ]);
 
-  const [rules, setRules] = useState<RuleGroupsProps[]>([
-    {
-      rule: countRules,
-      condition: "",
-      operator: "",
-      operatorValues: [],
-      operatorItem: "",
-      operatorItemValues: [],
-      operatorDate: "",
-      operatorMultidate: "",
-      combiner: "",
-      response: [],
-      responseUser: "",
-      groupId: groupRules.length,
-    },
+  const [rules, setRules] = useState<RuleGroupsProps[]>([]);
+
+  const [groupRules, setGroupRules] = useState<any[][]>([
+    [
+      {
+        rule: countRules,
+        condition: "",
+        operator: "",
+        operatorValues: [],
+        operatorItem: "",
+        operatorItemValues: [],
+        operatorDate: "",
+        operatorMultidate: "",
+        combiner: "",
+        response: [],
+        responseUser: "",
+        groupId: countGroups,
+      },
+    ],
   ]);
 
   useEffect(() => {
@@ -134,6 +149,9 @@ const CoreProvider: React.FC<ReactProps> = (props) => {
         data,
         rules,
         setRules,
+        allConditionGroup,
+        allConditionGroupValue,
+        setAllConditionGroupValue,
       }}
       {...props}
     >
